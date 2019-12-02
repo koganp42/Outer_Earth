@@ -33,7 +33,7 @@ $(document).ready(function () {
     });
 
 
-    //front end styles//
+   
 
     function accessNeO(){
         //call the near earth object api and attain data from it
