@@ -41,7 +41,7 @@ $(document).ready(function () {
 
         //get current week from moment.js
         // let start_date = moment().year() + "-" +  moment().month() + "-" + moment().date();
-        let start_date = "2019-11-30";
+        let start_date = "2019-12-01";
         console.log(start_date);
         let end_date="";
         let queryURL = "https://api.nasa.gov/neo/rest/v1/feed?start_date="+ start_date +"&api_key=" + appID;
@@ -51,6 +51,22 @@ $(document).ready(function () {
             method: "GET"
         }).then(function(response){
             console.log(response);
+
+            let date_p = $("<p>");
+            let diameter_p = $("<p>");
+            let velocity_p = $("<p>");
+            let potentially_hazardous_p = $("<p>");
+            let name_p = $("<p>");
+
+            
+
+            date_p.text("Close approach date: " + response.near_earth_objects["2019-12-01"][0].close_approach_data[0].close_approach_date_full);
+            diameter_p.text("Maximum diameter: " + response.near_earth_objects["2019-12-01"][0].estimated_diameter.meters.estimated_diameter_max);
+            velocity_p.text("Relative velocity: " + response.near_earth_objects["2019-12-01"][0].close_approach_data[0].relative_velocity.miles_per_hour + " mph");
+            potentially_hazardous_p.text("Potentially hazardous: " + response.near_earth_objects["2019-12-01"][0].is_potentially_hazardous_asteroid);
+            name_p.text("Name: " + response.near_earth_objects["2019-12-01"][0].name);
+
+            $(".card2-text").append(date_p, diameter_p, velocity_p, potentially_hazardous_p, name_p);
         });
         
     }
