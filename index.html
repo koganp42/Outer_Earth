@@ -15,6 +15,7 @@
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Orbitron&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" type="text/css" href="assets/styles.css">
     <title>OUTER-EARTH</title>
 </head>
@@ -24,7 +25,7 @@
     <div class="jumbotron-fluid .container-fluid col-7 animated zoomIn slow" id="j-tron">
         <h1 class="animated zoomIn slow ">OUTER-EARTH</h1>
         <p class="sub-title animated flipInX delay-1s">Infinite Exploration</p>
-    </div>
+   
 
     <!--Sub head image-->
     <div id="hero-image" class="carousel slide" data-ride="carousel">
@@ -33,11 +34,37 @@
                 alt="man looking into space">
         </div>
     </div>
+</div>
+
     <!---Picture of the day can go here-->
     <div class="col-8 mx-auto my-5" id="picOfDayContainer">
         <p class="sub-title">NASA Pic of the day</p>
         <img class="picOfDay img-fluid" src="assets/images/picOtheDay.jpg" alt="Picture of the day from NASA">
-
+    
+ <!-- Button trigger modal -->
+<button type="button" class="btn  info" data-toggle="modal" data-target="#exampleModalCenter">
+        More about this image
+      </button>
+      
+      <!-- Modal -->
+      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="PotdTitle">Pic title here</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                    Each day a different image or photograph of our fascinating universe is featured, along with a brief explanation written by a professional astronomer.
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <!---Near earth objects button/image-->
     <div class="col-6 mx-auto my-5 " id="neoCard">
@@ -100,7 +127,7 @@
     </div>
 
 
-    
+
     <!--ISS Main image-->
     <div class="col-6 mx-auto my-5 " id="issCard">
         <h1 class="centered">ISS Location</h1>
@@ -114,7 +141,7 @@
 
 
 
-
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
     <script src="scripts/main.js"></script>
 </body>

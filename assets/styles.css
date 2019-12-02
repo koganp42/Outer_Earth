@@ -1,9 +1,15 @@
 body {
-  background-image: url(images/seaOfStars.jpg);
   background-size: cover;
+  background-repeat: no-repeat;
+  background-image: url(images/seaOfStars.jpg);
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  box-sizing: border-box;   
+  background-attachment:fixed; 
+  background-position: center;
+  max-width: 100%;
+  overflow-x: hidden;
+  
 }
 
 #j-tron {
@@ -37,11 +43,15 @@ h1 {
   text-shadow: rgb(63, 207, 207) 0px 1px 4px;
 }
 
-#hero-image {
-  opacity: 0.7;
-}
+ #hero-image {
+position: relative;
+opacity: 0.5;
+top:-200px;
+ 
+} 
 
 .picOfDay {
+    
   width: 100%;
   height: 100%;
   object-fit: contain;
@@ -102,3 +112,17 @@ h1 {
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+.info{
+    background-image: linear-gradient(#22c1c3, #fdbb2d);
+    opacity: 0.9;
+}
+.modal-dialog{
+    color: red;
+}
+
+.modal-body{
+    color: red;
+    background-color: red;
+}
+
