@@ -12,17 +12,16 @@ body {
 }
 
 #j-tron {
-  opacity: 0.8;
-  margin: 0 auto;
+  opacity: 0.9;
+  width: 100%;
   min-height: 100vh;
-  background: transparent;
-  border-bottom: #22c1c3 1px solid;
+  border-bottom: #22c1c3 0.5px solid;
   background-image: url(images//greg-rakozy-oMpAz-DN-9I-unsplash.jpg);
-  object-fit: contain;
   background-position: center;
   background-size: cover;
-  box-shadow: rgb(63, 207, 207) 0px 0px 18px;
 }
+
+
 
 h1 {
   padding: 40px;
@@ -35,6 +34,7 @@ h1 {
   text-shadow: rgb(63, 207, 207) 0px 1px 6px;
 }
 
+
 .sub-title {
   font-size: 2.5vh;
   color: #ffffff;
@@ -42,6 +42,7 @@ h1 {
   font-family: "Orbitron", sans-serif;
   letter-spacing: 5px;
   text-shadow: rgb(63, 207, 207) 0px 1px 4px;
+
 }
 
 .picOfDay {
@@ -51,21 +52,44 @@ h1 {
   border: 0.2vw solid rgb(31, 33, 33);
   border-radius: 6px;
   box-shadow: rgb(63, 207, 207) 0px 0px 12px;
-  opacity: 0.9;
 }
 
-.neoImage {
+#picOfDayContainer{
+  padding: 50px;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 1s ease-out;
+}
+
+#picOfDayContainer.fade-in{
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.neoImage { 
   width: 100%;
   height: 100%;
-  object-fit: contain;
-  border-radius: 100%;
-  /* box-shadow: rgb(63, 207, 207) 0px 0px 30px -14px; */
-  cursor: pointer;
+  border-radius: 50%;
 }
+
+#neoCard{
+  padding:50px;
+  opacity:0;
+  transform: translateY(50px);
+  transition: all 1s ease-out;
+}
+#neoCard.fade-in{
+  opacity: 1;
+  transform: translateY(0);
+
+}
+
+.issImg:hover,
 .neoImage:hover {
   transform: scale(1.04);
   transition: all ease-in 300ms;
   animation: shadowSwell 1s infinite;
+  cursor: pointer;
 }
 @keyframes shadowSwell {
   0% {
@@ -79,6 +103,22 @@ h1 {
   }
 }
 
+#issCard{
+  padding: 80px;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 1s ease-out;
+
+
+}
+
+#issCard.fade-in{
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+
 .comet-card {
   background: transparent;
   color: antiquewhite;
@@ -86,6 +126,7 @@ h1 {
   overflow-y: auto;
   width: 30rem;
   margin: 30px auto;
+  border: #22c1c3 0.5px solid;
 }
 .card-img-top {
   width: 100%;
@@ -94,21 +135,25 @@ h1 {
 
 .fa-window-close:hover {
   cursor: pointer;
-  color: darkgray;
+  color: #7df1f3;
 }
 .centered {
   letter-spacing: normal;
   line-height: inherit;
   font-size: 3.5vmax;
   position: absolute;
-  top: 25vmin;
+  top: 20vmin;
   left: 50%;
   transform: translate(-50%, -50%);
 }
 
 .info {
-  color: antiquewhite;
+  letter-spacing: 0.8rem;
+  font-weight: bolder;
+  box-shadow: #22c1c3 0px 0px 5px;
+  color: #22c1c3;
   background: transparent;
+  font-family: "Orbitron", sans-serif;
 }
 
 .info:hover {
@@ -120,6 +165,7 @@ h1 {
   font-family: "Orbitron", sans-serif;
   letter-spacing: 5px;
 }
+
 
 .modal-body {
   color: antiquewhite;
@@ -139,6 +185,27 @@ h1 {
 }
 span {
   color: rgb(40, 199, 191);
-  text-shadow: #dd0c63 2px 3px 10px -2px;
   font-size: 1.5rem;
+}
+span:hover{
+  color: #7df1f3; 
+}
+
+.pull-right{
+  position: fixed;
+}
+
+.btn-secondary{
+  background: transparent;
+  color: #22c1c3;
+  border: 1px solid #22c1c3;
+}
+
+.btn-secondary:hover{
+  background: transparent;
+  transform: scale(1.03);
+  transition: all 100ms ease-in;
+  color: #7df1f3;
+  border: 1px solid #7df1f3;
+  box-shadow: 0px 0px 10px -2px #7df1f3;
 }
