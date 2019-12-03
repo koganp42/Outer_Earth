@@ -10,12 +10,12 @@ $(document).ready(function () {
         $('.close-icon').on('click', function () {
             $(this).closest('.card').fadeOut();
             $("#neoCard").css("display", "block");
-        })
-    })
+        });
+    });
                 //POTD Modal
         $(".info").on("click",function(){
             $("#myModal").modal("show");
-        })
+        });
 
         //front end styles//
 
