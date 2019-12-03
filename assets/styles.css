@@ -4,54 +4,47 @@ body {
   background-image: url(images/seaOfStars.jpg);
   margin: 0;
   padding: 0;
-  box-sizing: border-box;   
-  background-attachment:fixed; 
+  box-sizing: border-box;
+  background-attachment: fixed;
   background-position: center;
   max-width: 100%;
   overflow-x: hidden;
-  
 }
 
 #j-tron {
-  margin: 5rem auto;
-  min-height: 30vh;
-  max-height: 40vh;
-  border: 0.1vw solid #e2e3dd;
+  opacity: 0.8;
+  margin: 0 auto;
+  min-height: 100vh;
   background: transparent;
-  border-bottom-left-radius: 70px;
-  border-top-right-radius: 90px;
-  box-shadow: rgb(63, 207, 207) 0px 0px 10px;
+  border-bottom: #22c1c3 1px solid;
+  background-image: url(images//greg-rakozy-oMpAz-DN-9I-unsplash.jpg);
+  object-fit: contain;
+  background-position: center;
+  background-size: cover;
+  box-shadow: rgb(63, 207, 207) 0px 0px 18px;
 }
 
 h1 {
-  padding: 10px;
-  font-size: 5vmin;
+  padding: 40px;
+  font-size: 7vmin;
   font-family: "Orbitron", sans-serif;
-  color: #e2e3dd;
+  color: #ffffff;
   text-align: center;
-  margin: 4vh auto;
+  margin: 0 auto;
   letter-spacing: 0.5rem;
   text-shadow: rgb(63, 207, 207) 0px 1px 6px;
 }
 
 .sub-title {
-  font-size: 2vh;
-  color: #e2e3dd;
+  font-size: 2.5vh;
+  color: #ffffff;
   text-align: center;
   font-family: "Orbitron", sans-serif;
   letter-spacing: 5px;
   text-shadow: rgb(63, 207, 207) 0px 1px 4px;
 }
 
- #hero-image {
-position: relative;
-opacity: 0.5;
-top:-200px;
- 
-} 
-
 .picOfDay {
-    
   width: 100%;
   height: 100%;
   object-fit: contain;
@@ -66,29 +59,29 @@ top:-200px;
   height: 100%;
   object-fit: contain;
   border-radius: 100%;
-  box-shadow: rgb(63, 207, 207) 0px 0px 30px;
+  /* box-shadow: rgb(63, 207, 207) 0px 0px 30px -14px; */
   cursor: pointer;
-  animation: shadowSwell 1.8s infinite;
 }
-.neoImage:hover{
-    transform: scale(1.04);
-    transition: all ease-in 300ms;
+.neoImage:hover {
+  transform: scale(1.04);
+  transition: all ease-in 300ms;
+  animation: shadowSwell 1s infinite;
 }
-@-webkit-keyframes shadowSwell {
-    0% {
-      -webkit-box-shadow: 0 0 0 0 rgba(63, 207, 207,0.4);
-    }
-    70% {
-        -webkit-box-shadow: 0 0 0 30px rgba(63, 207, 207,0);
-    }
-    100% {
-        -webkit-box-shadow: 0 0 0 0 rgba(63, 207, 207,0);
-    }
+@keyframes shadowSwell {
+  0% {
+    box-shadow: 0 0 0 0 rgba(63, 207, 207, 0.4);
   }
-
-
+  70% {
+    box-shadow: 0 0 0 40px rgba(63, 207, 207, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(63, 207, 207, 0);
+  }
+}
 
 .comet-card {
+  background: transparent;
+  color: antiquewhite;
   max-height: 60vh;
   overflow-y: auto;
   width: 30rem;
@@ -106,23 +99,46 @@ top:-200px;
 .centered {
   letter-spacing: normal;
   line-height: inherit;
-  font-size: 3.5vw;
+  font-size: 3.5vmax;
   position: absolute;
-  top: 50%;
+  top: 25vmin;
   left: 50%;
   transform: translate(-50%, -50%);
 }
 
-.info{
-    background-image: linear-gradient(#22c1c3, #fdbb2d);
-    opacity: 0.9;
-}
-.modal-dialog{
-    color: red;
+.info {
+  color: antiquewhite;
+  background: transparent;
 }
 
-.modal-body{
-    color: red;
-    background-color: red;
+.info:hover {
+  color: lightseagreen;
+  animation: pulse 2s ease-in-out;
+}
+.modal-header {
+  color: antiquewhite;
+  font-family: "Orbitron", sans-serif;
+  letter-spacing: 5px;
 }
 
+.modal-body {
+  color: antiquewhite;
+  height: 60vh;
+  font-family: "Orbitron", sans-serif;
+  letter-spacing: 2px;
+  line-height: 2;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+.modal-content {
+  background-color: rgb(4, 4, 5);
+  box-shadow: rgb(40, 199, 191) 00px 00px 100px -50px;
+  opacity: 0.95;
+  border: 0.5px solid #22c1c3;
+}
+span {
+  color: rgb(40, 199, 191);
+  text-shadow: #dd0c63 2px 3px 10px -2px;
+  font-size: 1.5rem;
+}
