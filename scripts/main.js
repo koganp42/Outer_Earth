@@ -2,6 +2,29 @@ $(document).ready(function () {
 
 
     //front end styles//
+    //gsap/scroll magic//
+    let controller = new ScrollMagic.Controller();
+
+    new ScrollMagic.Scene({
+        triggerElement: '#picOfDayContainer',offset: -150    
+    })
+    .setClassToggle('#picOfDayContainer','fade-in')
+    .addTo(controller);
+
+    new ScrollMagic.Scene({
+        triggerElement: '#neoCard',offset: -150     
+    })
+    .setClassToggle('#neoCard','fade-in')
+    .addTo(controller);
+
+    new ScrollMagic.Scene({
+        triggerElement: '#issCard',offset: -150     
+    })
+    .setClassToggle('#issCard','fade-in')
+    .addTo(controller);
+        //gsap/scroll magic//
+
+
     $(".comet-card").css("display", "none");
     $("#neoCard").on("click", function () {
         $("#neoCard").css("display", "none");
@@ -17,6 +40,10 @@ $(document).ready(function () {
             $("#myModal").modal("show");
         });
 
+              //ISS Modal
+        $(".issImg").on("click",function(){
+            $("#issModal").modal("show");
+        });
         //front end styles//
 
 
