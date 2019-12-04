@@ -33,7 +33,7 @@
     <!---Picture of the day can go here-->
     <div class="col-lg-10 col-md-10 col-sm-12 mx-auto my-5" id="picOfDayContainer">
         <p class="sub-title" id="subTitle">NASA Pic of the day</p>
-        <img class="picOfDay img-fluid" src="assets/images/picOtheDay.jpg" alt="Picture of the day from NASA">
+        <img id="npodImg" class="picOfDay img-fluid" src="assets/images/picOtheDay.jpg" alt="Picture of the day from NASA">
     
  <!-- Button trigger modal -->
 <button type="button" class="btn  info" data-toggle="modal" data-target="#exampleModalCenter">
@@ -50,7 +50,7 @@
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body" id="PotdInfo">
                     Each day a different image or photograph of our fascinating universe is featured, along with a brief explanation written by a professional astronomer.
             </div>
             <div class="modal-footer">

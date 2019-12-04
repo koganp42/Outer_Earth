@@ -66,20 +66,24 @@ $(document).ready(function () {
 
         let nasaApiKey = "8phoKd5HeuFQGjXL2rQjtHLqkeY9a3xlESjPpoGL";
         let queryURL = "https://api.nasa.gov/planetary/apod?api_key=" + nasaApiKey;
-
+    
         $.ajax({
             url: queryURL,
             method: "GET",
-        }).then(function (response) {
-            console.log(response);
-            if (response.hdurl !== undefined) {
-                $(".picOfDay").attr("src", response.hdurl)
-            } else {
-                $(".picOfDay").attr("src", response.url)
-            };
-            //$("#picOfDayContainer").children
-        });
-    }
+            }).then(function(response) {
+                console.log(response);
+                let imageEl = $("#npodImg");
+                let videoEl = $(`<iframe class="picOfDay" id="videoOfDay" src=${response.url}></iframe>`)
+                if(response.media_type == "video"){
+                    imageEl.replaceWith(videoEl);
+                } else if(response.hdurl !== undefined){
+                    $(".picOfDay").attr("src", response.hdurl)
+                } else {
+                    $(".picOfDay").attr("src", response.url)
+                }; 
+            $("#PotdTitle").text(response.title);
+            $("#PotdInfo").text(response.explanation);
+            });    }
     //End of NASA Pic of Day API Call Section
     getPicOfDay();
 
