@@ -33,10 +33,12 @@ h1 {
   letter-spacing: 0.5rem;
   text-shadow: rgb(63, 207, 207) 0px 1px 6px;
 }
-h6{
+h4{
   font-family: "Orbitron", sans-serif;
   text-shadow: rgb(63, 207, 207) 0px 1px 6px;
-  letter-spacing: 0.5rem;
+  letter-spacing: 0.3rem;
+  border-bottom: 1px solid #22c1c3;
+  margin-top: 20px;
 }
 
 
@@ -113,8 +115,6 @@ h6{
   opacity: 0;
   transform: translateY(50px);
   transition: all 1s ease-out;
-
-
 }
 
 #issCard.fade-in{
@@ -125,8 +125,10 @@ h6{
 
 
 .comet-card {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 1.2em;
   background: transparent;
-  color: antiquewhite;
+  color: rgb(255, 248, 248);
   max-height: 60vh;
   overflow-y: auto;
   width: 30rem;
