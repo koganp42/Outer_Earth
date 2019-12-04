@@ -65,43 +65,25 @@ $(document).ready(function () {
     function getPicOfDay() {
 
         let nasaApiKey = "8phoKd5HeuFQGjXL2rQjtHLqkeY9a3xlESjPpoGL";
-<<<<<<< HEAD
-        let queryURL = "https://api.nasa.gov/planetary/apod?date=2019-12-02&api_key=" + nasaApiKey;
-        
-        
+        let queryURL = "https://api.nasa.gov/planetary/apod?api_key=" + nasaApiKey;
+    
         $.ajax({
             url: queryURL,
             method: "GET",
             }).then(function(response) {
                 console.log(response);
                 let imageEl = $("#npodImg");
-                let videoEl = `<iframe src=${response.url}></iframe>`
+                let videoEl = $(`<iframe class="picOfDay" id="videoOfDay" src=${response.url}></iframe>`)
                 if(response.media_type == "video"){
-                    imageEl.parentNode.replaceChild(videoEl, imageEl);
+                    imageEl.replaceWith(videoEl);
                 } else if(response.hdurl !== undefined){
                     $(".picOfDay").attr("src", response.hdurl)
                 } else {
                     $(".picOfDay").attr("src", response.url)
                 }; 
-                //$("#picOfDayContainer").children
-            });
-=======
-        let queryURL = "https://api.nasa.gov/planetary/apod?api_key=" + nasaApiKey;
-
-        $.ajax({
-            url: queryURL,
-            method: "GET",
-        }).then(function (response) {
-            console.log(response);
-            if (response.hdurl !== undefined) {
-                $(".picOfDay").attr("src", response.hdurl)
-            } else {
-                $(".picOfDay").attr("src", response.url)
-            };
-            //$("#picOfDayContainer").children
-        });
->>>>>>> master
-    }
+            $("#PotdTitle").text(response.title);
+            $("#PotdInfo").text(response.explanation);
+            });    }
     //End of NASA Pic of Day API Call Section
     getPicOfDay();
 
