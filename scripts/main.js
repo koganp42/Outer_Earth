@@ -73,7 +73,7 @@ $(document).ready(function () {
             method: "GET",
             }).then(function(response) {
                 console.log(response);
-                let imageEl = $(".picOfDay");
+                let imageEl = $("#npodImg");
                 let videoEl = `<iframe src=${response.url}></iframe>`
                 if(response.media_type == "video"){
                     imageEl.parentNode.replaceChild(videoEl, imageEl);
