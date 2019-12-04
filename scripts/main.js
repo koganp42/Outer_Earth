@@ -96,14 +96,35 @@ $(document).ready(function () {
 
 
 
+//accessing possible mission targets
+    function callTargetApis(id){
+        $.ajax({
+            url: "https://ssd-api.jpl.nasa.gov/nhats.api?des=" + id,
+            method: "GET"
+        }).then(function(response){
+            console.log(response);
+        });
+    }
+    
+    function accessMissionTargets(){
+        //ajax call to get possible mission targets unconstrained
+        $.ajax({
+            url: "https://ssd-api.jpl.nasa.gov/nhats.api",
+            method: "GET"
+        }).then(function(response){
+            console.log(response);
+        });
+
+           //ajax call to get data on specific objects
+        callTargetApis("4660");
+        callTargetApis("10302");
+        callTargetApis("3361");
+    }
+accessMissionTargets();
+//accessing possible mission targets
 
 
-
-
-
-
-
-
+//accessing neo api call
     function accessNeO() {
         //call the near earth object api and attain data from it
         let appID = "8phoKd5HeuFQGjXL2rQjtHLqkeY9a3xlESjPpoGL";
@@ -152,10 +173,7 @@ $(document).ready(function () {
 
     }
     accessNeO();
-    console.log(moment().date());
-    console.log(moment().year());
-    console.log(moment().month());
-    console.log(moment().year() + "-" + moment().month() + "-" + moment().date());
+    //accessing neo api call
 
 
 
