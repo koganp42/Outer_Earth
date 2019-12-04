@@ -130,12 +130,14 @@ $(document).ready(function () {
                 let velocity_p = $("<p>");
                 let potentially_hazardous_p = $("<p>");
                 let name_h = $("<h6>");
+                let velocity = parseInt(response.near_earth_objects[start_date][i].close_approach_data[0].relative_velocity.miles_per_hour);
 
                 name_h.addClass("neo-name");
 
                 date_p.text("Close approach date: " + response.near_earth_objects[start_date][i].close_approach_data[0].close_approach_date_full);
                 diameter_p.text("Maximum diameter: " + (response.near_earth_objects[start_date][i].estimated_diameter.meters.estimated_diameter_max).toFixed(2) + " meters");
-                velocity_p.text("Relative velocity: " + (response.near_earth_objects[start_date][i].close_approach_data[0].relative_velocity.miles_per_hour).toFixed(2) + " mph");
+                velocity_p.text("Relative velocity: " + velocity.toFixed(2)
+                 + " mph");
                 potentially_hazardous_p.text("Potentially hazardous: " + response.near_earth_objects[start_date][i].is_potentially_hazardous_asteroid);
                 name_h.text("NeO name: " + response.near_earth_objects[start_date][i].name);
 
