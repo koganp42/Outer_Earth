@@ -133,7 +133,7 @@ $(document).ready(function () {
                 let diameter_p = $("<p>");
                 let velocity_p = $("<p>");
                 let potentially_hazardous_p = $("<p>");
-                let name_h = $("<h6>");
+                let name_h = $("<h4>");
                 let velocity = parseInt(response.near_earth_objects[start_date][i].close_approach_data[0].relative_velocity.miles_per_hour);
 
                 name_h.addClass("neo-name");
