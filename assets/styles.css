@@ -125,8 +125,9 @@ h4{
 
 
 .comet-card {
-  font-family: Georgia, 'Times New Roman', Times, serif;
-  font-size: 1.2em;
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+  font-size: 1.5em;
+  letter-spacing:1px;
   background: transparent;
   color: rgb(255, 248, 248);
   max-height: 60vh;
@@ -134,6 +135,7 @@ h4{
   width: 30rem;
   margin: 30px auto;
   border: #22c1c3 0.5px solid;
+  text-shadow: rgb(63, 207, 207) 0px 1px 2px;
 }
 .card-img-top {
   width: 100%;
