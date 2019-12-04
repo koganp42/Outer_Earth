@@ -6,23 +6,23 @@ $(document).ready(function () {
     let controller = new ScrollMagic.Controller();
 
     new ScrollMagic.Scene({
-        triggerElement: '#picOfDayContainer',offset: -150    
+        triggerElement: '#picOfDayContainer', offset: -150
     })
-    .setClassToggle('#picOfDayContainer','fade-in')
-    .addTo(controller);
+        .setClassToggle('#picOfDayContainer', 'fade-in')
+        .addTo(controller);
 
     new ScrollMagic.Scene({
-        triggerElement: '#neoCard',offset: -150     
+        triggerElement: '#neoCard', offset: -150
     })
-    .setClassToggle('#neoCard','fade-in')
-    .addTo(controller);
+        .setClassToggle('#neoCard', 'fade-in')
+        .addTo(controller);
 
     new ScrollMagic.Scene({
-        triggerElement: '#issCard',offset: -150     
+        triggerElement: '#issCard', offset: -150
     })
-    .setClassToggle('#issCard','fade-in')
-    .addTo(controller);
-        //gsap/scroll magic//
+        .setClassToggle('#issCard', 'fade-in')
+        .addTo(controller);
+    //gsap/scroll magic//
 
 
     $(".comet-card").css("display", "none");
@@ -35,16 +35,16 @@ $(document).ready(function () {
             $("#neoCard").css("display", "block");
         });
     });
-                //POTD Modal
-        $(".info").on("click",function(){
-            $("#myModal").modal("show");
-        });
+    //POTD Modal
+    $(".info").on("click", function () {
+        $("#myModal").modal("show");
+    });
 
-              //ISS Modal
-        $(".issImg").on("click",function(){
-            $("#issModal").modal("show");
-        });
-        //front end styles//
+    //ISS Modal
+    $(".issImg").on("click", function () {
+        $("#issModal").modal("show");
+    });
+    //front end styles//
 
 
 
@@ -62,23 +62,23 @@ $(document).ready(function () {
 
 
     //NASA Pic of the Day API Call
-    function getPicOfDay(){
+    function getPicOfDay() {
 
         let nasaApiKey = "8phoKd5HeuFQGjXL2rQjtHLqkeY9a3xlESjPpoGL";
         let queryURL = "https://api.nasa.gov/planetary/apod?api_key=" + nasaApiKey;
-        
+
         $.ajax({
             url: queryURL,
             method: "GET",
-            }).then(function(response) {
-                console.log(response);
-                if(response.hdurl !== undefined){
-                    $(".picOfDay").attr("src", response.hdurl)
-                } else {
-                    $(".picOfDay").attr("src", response.url)
-                }; 
-                //$("#picOfDayContainer").children
-            });
+        }).then(function (response) {
+            console.log(response);
+            if (response.hdurl !== undefined) {
+                $(".picOfDay").attr("src", response.hdurl)
+            } else {
+                $(".picOfDay").attr("src", response.url)
+            };
+            //$("#picOfDayContainer").children
+        });
     }
     //End of NASA Pic of Day API Call Section
     getPicOfDay();
@@ -95,51 +95,61 @@ $(document).ready(function () {
 
 
 
-   
 
 
-   
 
-    function accessNeO(){
+
+
+    function accessNeO() {
         //call the near earth object api and attain data from it
         let appID = "8phoKd5HeuFQGjXL2rQjtHLqkeY9a3xlESjPpoGL";
 
         //get current week from moment.js
+        let year = moment().year();
+        let month = moment().month() + 1;
+        let day = moment().date();
+        day = moment().format("DD");
+
+
         // let start_date = moment().year() + "-" +  moment().month() + "-" + moment().date();
-        let start_date = "2019-12-01";
+        let start_date = year + "-" + month + "-" + day;
         console.log(start_date);
-        let end_date="";
-        let queryURL = "https://api.nasa.gov/neo/rest/v1/feed?start_date="+ start_date +"&api_key=" + appID;
+
+        let queryURL = "https://api.nasa.gov/neo/rest/v1/feed?start_date=" + start_date + "&api_key=" + appID;
 
         $.ajax({
             url: queryURL,
             method: "GET"
-        }).then(function(response){
+        }).then(function (response) {
             console.log(response);
+            for (let i = 0; i < 3; i++) {
 
-            let date_p = $("<p>");
-            let diameter_p = $("<p>");
-            let velocity_p = $("<p>");
-            let potentially_hazardous_p = $("<p>");
-            let name_p = $("<p>");
 
-            
+                let date_p = $("<p>");
+                let diameter_p = $("<p>");
+                let velocity_p = $("<p>");
+                let potentially_hazardous_p = $("<p>");
+                let name_h = $("<h6>");
 
-            date_p.text("Close approach date: " + response.near_earth_objects["2019-12-01"][0].close_approach_data[0].close_approach_date_full);
-            diameter_p.text("Maximum diameter: " + response.near_earth_objects["2019-12-01"][0].estimated_diameter.meters.estimated_diameter_max);
-            velocity_p.text("Relative velocity: " + response.near_earth_objects["2019-12-01"][0].close_approach_data[0].relative_velocity.miles_per_hour + " mph");
-            potentially_hazardous_p.text("Potentially hazardous: " + response.near_earth_objects["2019-12-01"][0].is_potentially_hazardous_asteroid);
-            name_p.text("Name: " + response.near_earth_objects["2019-12-01"][0].name);
+                name_h.addClass("neo-name");
 
-            $(".card2-text").append(date_p, diameter_p, velocity_p, potentially_hazardous_p, name_p);
+                date_p.text("Close approach date: " + response.near_earth_objects[start_date][i].close_approach_data[0].close_approach_date_full);
+                diameter_p.text("Maximum diameter: " + (response.near_earth_objects[start_date][i].estimated_diameter.meters.estimated_diameter_max).toFixed(2) + " meters");
+                velocity_p.text("Relative velocity: " + (response.near_earth_objects[start_date][i].close_approach_data[0].relative_velocity.miles_per_hour).toFixed(2) + " mph");
+                potentially_hazardous_p.text("Potentially hazardous: " + response.near_earth_objects[start_date][i].is_potentially_hazardous_asteroid);
+                name_h.text("NeO name: " + response.near_earth_objects[start_date][i].name);
+
+                $(".card2-text").append(name_h, date_p, diameter_p, velocity_p, potentially_hazardous_p);
+
+            }
         });
-        
+
     }
     accessNeO();
     console.log(moment().date());
     console.log(moment().year());
     console.log(moment().month());
-    console.log(moment().year() + "-" +  moment().month() + "-" + moment().date());
+    console.log(moment().year() + "-" + moment().month() + "-" + moment().date());
 
 
 
