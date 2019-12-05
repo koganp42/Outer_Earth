@@ -2,7 +2,16 @@ $(document).ready(function () {
 
 
     //front end styles//
+
+    //PreLoad Function//
+    window.addEventListener('load',function(){
+        let preload = document.querySelector('.preload');
+        preload.classList.add("preload-finish");
+    });
+
+
     //gsap/scroll magic//
+
     let controller = new ScrollMagic.Controller();
 
     new ScrollMagic.Scene({
