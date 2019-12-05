@@ -112,6 +112,17 @@ $(document).ready(function () {
             method: "GET"
         }).then(function(response){
             console.log(response);
+            //write the information into the html
+            let name_h = $("<h4>");
+            let delta_v_p = $("<p>");
+            let max_size_p = $("<p>");
+            let trip_there_p = $("<p>");
+            let stay_p = $("<p>");
+            let trip_back_p = $("<p>");
+
+            name_h.text(response.fullname);
+            max_size_p.text(response.max_size);
+            delta_v_p.text();
         });
     }
     
