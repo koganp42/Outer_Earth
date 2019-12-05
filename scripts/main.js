@@ -31,6 +31,12 @@ $(document).ready(function () {
     })
         .setClassToggle('#issCard', 'fade-in')
         .addTo(controller);
+
+        new ScrollMagic.Scene({
+            triggerElement: '#solar-main',offset: -150
+        })
+        .setClassToggle('#solar-main', 'fade-in')
+        .addTo(controller);
     //gsap/scroll magic//
 
 
@@ -44,15 +50,23 @@ $(document).ready(function () {
             $("#neoCard").css("display", "block");
         });
     });
-    //POTD Modal
+    //POTD Modal//
     $(".info").on("click", function () {
         $("#myModal").modal("show");
     });
 
-    //ISS Modal
+    //ISS Modal//
     $(".issImg").on("click", function () {
         $("#issModal").modal("show");
     });
+
+
+    //SOLAR MODAL//
+
+    $(".col-").on("click",function(){
+        $("#solarModal").modal("show");
+    });
+    
     //front end styles//
 
 

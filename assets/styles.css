@@ -49,16 +49,15 @@ body {
 }
 
 #j-tron {
-  opacity: 0.9;
-  width: 100%;
-  min-height: 99vh;
+  opacity: 0.8;
+  width: 80%;
+  margin: 40px auto;
+  border-radius: 40px;
+  box-shadow: #22c1c3 0px 5px 25px -1px;
+  min-height: 89vh;
   background-image: url(images//greg-rakozy-oMpAz-DN-9I-unsplash.jpg);
   background-position: center;
   background-size: cover;
-  clip-path: polygon(50% 0%, 100% 0, 100% 85%, 50% 100%, 0 85%, 0 0);
-  z-index: 1;
-  position: relative;
-
 }
 
 h1 {
@@ -129,16 +128,20 @@ h4{
 
 }
 
-.issImg:hover,
+.issImg:hover {
+  animation: pulse 1s infinite;
+  cursor: pointer;
+}
+
 .neoImage:hover {
-  transform: scale(1.04);
-  transition: all ease-in 300ms;
+  transform: rotate(360deg);
+  transition: all ease 20s;
   animation: shadowSwell 1s infinite;
   cursor: pointer;
 }
 @keyframes shadowSwell {
   0% {
-    box-shadow: 0 0 0 0 rgba(63, 207, 207, 0.4);
+    box-shadow: 0 0 0 0 rgba(7, 90, 245, 0.4);
   }
   70% {
     box-shadow: 0 0 0 40px rgba(63, 207, 207, 0);
@@ -278,19 +281,28 @@ margin: 100px auto;
  height: 25vw;
  margin: 15px auto;
  padding-bottom: 0vw;
-
-display: inline-block;
 cursor: pointer;
+border-radius: 50%;
+}
+
+.sun:hover,.venus:hover,
+.mercury:hover,.moon:hover,
+.jupiter:hover,.uranus:hover,
+.neptune:hover,.pluto:hover,
+.saturn:hover,.mars:hover{
+  animation: bounce 1s ease-in-out ;
 }
 
 .saturn{
   min-width: 25vw;
   min-height: 25vw;
+  border-radius: 10%;
 }
 
 /* Planet Names */
 
 .sunBefore::before{
+  margin-bottom: -20px;
   text-align: center;
   display: block;
   font-size: 4vw;
@@ -304,9 +316,10 @@ cursor: pointer;
 }
 
 .mercuryBefore::before{
+  margin-bottom: -20px;
   text-align: center;
   display: block;
-  font-size: 3vw;
+  font-size: 4vw;
   font-family: 'Yanone Kaffeesatz', sans-serif;
   text-shadow: #22c1c3 0px 2px 2px;
   letter-spacing: 2px;
@@ -317,9 +330,10 @@ cursor: pointer;
 }
 
 .venusBefore::before{
+  margin-bottom: -20px;
   text-align: center;
   display: block;
-  font-size: 3vw;
+  font-size: 4vw;
   font-family: 'Yanone Kaffeesatz', sans-serif;
   text-shadow: #22c1c3 0px 2px 2px;
   letter-spacing: 2px;
@@ -329,9 +343,10 @@ cursor: pointer;
   position: relative;
 }
 .moonBefore::before{
+  margin-bottom: -20px;
   text-align: center;
   display: block;
-  font-size: 3vw;
+  font-size: 4vw;
   font-family: 'Yanone Kaffeesatz', sans-serif;
   text-shadow: #22c1c3 0px 2px 2px;
   letter-spacing: 2px;
@@ -341,9 +356,10 @@ cursor: pointer;
   position: relative;
 }
 .marsBefore::before{
+  margin-bottom: -20px;
   text-align: center;
   display: block;
-  font-size: 3vw;
+  font-size: 4vw;
   font-family: 'Yanone Kaffeesatz', sans-serif;
   text-shadow: #22c1c3 0px 2px 2px;
   letter-spacing: 2px;
@@ -353,9 +369,10 @@ cursor: pointer;
   position: relative;
 }
 .jupiterBefore::before{
+  margin-bottom: -20px;
   text-align: center;
   display: block;
-  font-size: 3vw;
+  font-size: 4vw;
   font-family: 'Yanone Kaffeesatz', sans-serif;
   text-shadow: #22c1c3 0px 2px 2px;
   letter-spacing: 2px;
@@ -366,9 +383,10 @@ cursor: pointer;
 }
 
 .saturnBefore::before{
+  margin-bottom: -20px;
   text-align: center;
   display: block;
-  font-size: 3vw;
+  font-size: 4vw;
   font-family: 'Yanone Kaffeesatz', sans-serif;
   text-shadow: #22c1c3 0px 2px 2px;
   letter-spacing: 2px;
@@ -379,9 +397,10 @@ cursor: pointer;
 }
 
 .uranusBefore::before{
+  margin-bottom: -20px;
   text-align: center;
   display: block;
-  font-size: 3vw;
+  font-size: 4vw;
   font-family: 'Yanone Kaffeesatz', sans-serif;
   text-shadow: #22c1c3 0px 2px 2px;
   letter-spacing: 2px;
@@ -392,9 +411,10 @@ cursor: pointer;
 }
 
 .neptuneBefore::before{
+  margin-bottom: -20px;
   text-align: center;
   display: block;
-  font-size: 3vw;
+  font-size: 4vw;
   font-family: 'Yanone Kaffeesatz', sans-serif;
   text-shadow: #22c1c3 0px 2px 2px;
   letter-spacing: 2px;
@@ -405,9 +425,10 @@ cursor: pointer;
 }
 
 .plutoBefore::before{
+  margin-bottom: -20px;
   text-align: center;
   display: block;
-  font-size: 3vw;
+  font-size: 4vw;
   font-family: 'Yanone Kaffeesatz', sans-serif;
   text-shadow: #22c1c3 0px 2px 2px;
   letter-spacing: 2px;
@@ -415,4 +436,31 @@ cursor: pointer;
   color: rgb(255, 255, 255);
   position: absolute;
   position: relative;
+}
+
+#solar-main{
+  margin: 20% auto;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 1s ease-out;
+}
+
+#solar-main.fade-in{
+  opacity: 1;
+  transform: translateY(0px);
+  
+}
+
+#userWeight{
+  background: transparent;
+  border: #22c1c3 0.5px solid;
+  color: whitesmoke;
+  padding: 5px;
+  position: absolute;
+  left: 20%;
+  
+}
+
+#userWeight:focus{
+  outline-color: #22c1c3;
 }
