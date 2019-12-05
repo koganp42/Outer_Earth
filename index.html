@@ -23,44 +23,52 @@
 </head>
 
 <body>
-    <!---------HEADER LOGO------------------>
-    <div class="jumbotron-fluid .container-fluid col-12 "id="j-tron">
-        <h1 id="mainText"class="logoText">OUTER-EARTH</h1>
-        <p class="sub-title">Infinite Exploration</p>
-   
+    <!-------------Website Pre-Loader------------->
+    <div class="preload">
+        <h2 class="loadText">Contacting NASA Satellites...</h2>
+    </div>
 
-</div>
+
+    <!---------HEADER LOGO------------------>
+
+    <div class="jumbotron-fluid .container-fluid col-12 " id="j-tron">
+        <h1 id="mainText" class="logoText">OUTER-EARTH</h1>
+        <p class="sub-title">Infinite Exploration</p>
+    </div>
 
     <!---Picture of the day can go here-->
     <div class="col-lg-10 col-md-10 col-sm-12 mx-auto my-5" id="picOfDayContainer">
         <p class="sub-title" id="subTitle">NASA Pic of the day</p>
-        <img id="npodImg" class="picOfDay img-fluid" src="assets/images/picOtheDay.jpg" alt="Picture of the day from NASA">
-    
- <!-- Button trigger modal -->
-<button type="button" class="btn  info" data-toggle="modal" data-target="#exampleModalCenter">
-        Learn More
-      </button>
+        <img id="npodImg" class="picOfDay img-fluid" src="assets/images/picOtheDay.jpg"
+            alt="Picture of the day from NASA">
+
+        <!-- Button trigger modal -->
+        <button type="button" class="btn  info" data-toggle="modal" data-target="#exampleModalCenter">
+            Learn More
+        </button>
     </div>
-      <!-- Modal -->
-      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+        aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="PotdTitle">Pic title here</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="PotdTitle">Pic title here</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="PotdInfo">
+                    Each day a different image or photograph of our fascinating universe is featured, along with a brief
+                    explanation written by a professional astronomer.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
             </div>
-            <div class="modal-body" id="PotdInfo">
-                    Each day a different image or photograph of our fascinating universe is featured, along with a brief explanation written by a professional astronomer.
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            </div>
-          </div>
         </div>
-      </div>
-    
+    </div>
+
     <!---Near earth objects button/image-->
     <div class="col-lg-6 col-m-6 col-sm-6 mx-auto my-5 " id="neoCard">
         <h1 class="sub-title">Near Earth Objects</h1>
@@ -69,8 +77,8 @@
 
     <!---------Some classes remain the same across cards  Feel free to input your own ID'S for api placemnent if needed-->
 
-    
-    
+
+
 
     <!--Card #2-->
     <div class="card comet-card col-8 animated flipInX">
@@ -110,27 +118,66 @@
         <h1 class="sub-title">ISS Location</h1>
         <img class="img-fluid btn issImg" src="assets/images/hiclipart.com.png" alt="Picture of the day from NASA">
     </div>
-          
-          <!-- Modal -->
-          <div class="modal fade" id="issModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-              <div class="modal-content">
+
+    <!-- Modal -->
+    <div class="modal fade" id="issModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title" id="issModalHeader">ISS Current Location</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
+                    <h5 class="modal-title" id="issModalHeader">ISS Current Location</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
                 <div class="modal-body">
-                         Current location Of the ISS
+                    Current location Of the ISS
                 </div>
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
-              </div>
             </div>
+        </div>
+    </div>
+
+    <!--------------Solar System------->
+    <div class="container solar-container">
+        <div class="row solar-row">
+
+            <div class="sunBefore">
+                <img src="assets/images/sun.png" class=" col- sun " alt="Picture of the Sun">
+            </div>
+
+            <div class="mercuryBefore">
+                <img src="assets/images/mercury.png" class=" col- mercury btn " alt="Picture of mercury">
+            </div>
+            <div class="venusBefore">
+            <img src="assets/images/venus.png" class=" col- venus btn " alt="Picture of venus">
+           </div>
+           <div class="moonBefore">
+            <img src="assets/images/moon.png" class=" col- moon btn " alt="Picture of moon">
           </div>
-    
+          <div class="marsBefore">
+            <img src="assets/images/mars.png" class=" col- mars btn " alt="Picture of mars">
+        </div>
+        <div class="jupiterBefore">
+            <img src="assets/images/jupiter.png" class=" col- jupiter btn " alt="Picture of jupiter">
+            </div>
+            <div class="saturnBefore">
+            <img src="assets/images/saturn.png" class=" col- saturn btn " alt="Picture of saturn">
+                </div>
+                <div class="uranusBefore">
+            <img src="assets/images/uranas.png" class=" col- uranus btn " alt="Picture of uranus">
+            </div>
+            <div class="neptuneBefore">
+            <img src="assets/images/neptune.png" class=" col- neptune btn " alt="Picture of neptune">
+            </div>
+            <div class="plutoBefore">
+            <img src="assets/images/pluto.png" class=" col- pluto btn " alt="Picture of pluto">
+            </div>
+        </div>
+    </div>
+
 
 
 
@@ -139,7 +186,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/animation.gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
     <script src="scripts/main.js"></script>
 </body>
 
