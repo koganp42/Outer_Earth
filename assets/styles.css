@@ -457,18 +457,10 @@ border-radius: 50%;
   color: whitesmoke;
   padding: 5px;
   position: absolute;
-  
+  left: 20%;
   
 }
 
 #userWeight:focus{
   outline-color: #22c1c3;
-}
-
-#input-btn{
-  background: transparent;
-  border: #22c1c3 0.5px solid;
-  color:whitesmoke;
-  position: relative;
-  margin-top: 50px ;
 }
