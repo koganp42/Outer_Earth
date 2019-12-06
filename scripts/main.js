@@ -216,6 +216,7 @@ accessMissionTargets();
     accessNeO();
     //accessing neo api call
 
+    
 
 
 
@@ -229,5 +230,14 @@ accessMissionTargets();
 
 
 
-
+    function setSurfaceGravity(){
+        
+        
+        console.log($(this).attr("id"));
+        $("#planetModal").text($(this).attr("id"));
+        
+       $("#userWeight").attr("data-sg", $(this).attr("data-sg"));
+        console.log($("#userWeight").attr("data-sg"));
+    }
+    $(".planet").click(setSurfaceGravity);
 });
