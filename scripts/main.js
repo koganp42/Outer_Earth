@@ -64,7 +64,7 @@ $(document).ready(function () {
     //SOLAR MODAL//
 
     $(".col-").on("click",function(){
-        $("#solarModal").modal("show");
+        $("#planetModal").modal("show");
     });
     
     //front end styles//
