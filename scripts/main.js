@@ -64,7 +64,7 @@ $(document).ready(function () {
     //SOLAR MODAL//
 
     $(".col-").on("click",function(){
-        $("#solarModal").modal("show");
+        $("#venusModal").modal("show");
     });
     
     //front end styles//
