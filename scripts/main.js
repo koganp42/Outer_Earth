@@ -149,12 +149,7 @@ $(document).ready(function () {
     
     function accessMissionTargets(){
         //ajax call to get possible mission targets unconstrained
-        $.ajax({
-            url: "https://ssd-api.jpl.nasa.gov/nhats.api",
-            method: "GET"
-        }).then(function(response){
-            console.log(response);
-        });
+        
 
            //ajax call to get data on specific objects
         callTargetApis("4660");
@@ -234,10 +229,26 @@ accessMissionTargets();
         
         
         console.log($(this).attr("id"));
-        $("#planetModal").text($(this).attr("id"));
+        $("#solarModalHeader").text($(this).attr("id"));
         
        $("#userWeight").attr("data-sg", $(this).attr("data-sg"));
         console.log($("#userWeight").attr("data-sg"));
     }
+
+    function planetaryWeight(){
+        let weight = $("#userWeight").val();
+        let surface_gravity = $("#userWeight").attr("data-sg");
+        let weight_on_planet = weight * surface_gravity;
+        
+        let weight_p = $("<p>");
+        weight_p.text("On " + $("#solarModalHeader").text() + " you weigh  " + weight_on_planet + " lbs");
+
+        $("#planet-weight").append(weight_p);
+
+        console.log(weight_on_planet);
+
+    }
+
+    $("#input-btn").click(planetaryWeight);
     $(".planet").click(setSurfaceGravity);
 });
