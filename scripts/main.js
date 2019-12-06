@@ -256,7 +256,7 @@ accessMissionTargets();
     //The function below will find the next time the ISS will pass by a user's location, then count down to that time.
     function findPassTime(){
         let userLocation = navigator.geolocation.getCurrentPosition();
-        
+        console.log(userLocation);
     }   
-
+    findPassTime();
 });
