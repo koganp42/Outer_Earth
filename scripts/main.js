@@ -150,12 +150,7 @@ $(document).ready(function () {
     
     function accessMissionTargets(){
         //ajax call to get possible mission targets unconstrained
-        $.ajax({
-            url: "https://ssd-api.jpl.nasa.gov/nhats.api",
-            method: "GET"
-        }).then(function(response){
-            console.log(response);
-        });
+        
 
            //ajax call to get data on specific objects
         callTargetApis("4660");
@@ -218,12 +213,19 @@ accessMissionTargets();
     //accessing neo api call
 
     
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> master
 
 
 
 
     //Start of ISS Functionality Section
 
+<<<<<<< HEAD
     //This function finds the location of the ISS based on the coordinates passed from the geoLocationISS function it's called in.
     function findIssCountry(issLat, issLong) {
         let googleMapsApiKey = "AIzaSyC7CPQ1X9wc7M8DGKJf2r1ykN2thMRttiQ";
@@ -259,4 +261,38 @@ accessMissionTargets();
         console.log(userLocation);
     }   
     findPassTime();
+=======
+
+
+
+
+
+    function setSurfaceGravity(){
+        
+        
+        console.log($(this).attr("id"));
+        $("#solarModalHeader").text($(this).attr("id"));
+        
+       $("#userWeight").attr("data-sg", $(this).attr("data-sg"));
+        console.log($("#userWeight").attr("data-sg"));
+    }
+
+    function planetaryWeight(){
+        $("#weight-on-planet").empty();
+        let weight = $("#userWeight").val();
+        let surface_gravity = $("#userWeight").attr("data-sg");
+        let weight_on_planet = weight * surface_gravity;
+        
+        
+        $("#weight-on-planet").text("On " + $("#solarModalHeader").text() + " you weigh  " + weight_on_planet.toFixed(2) + " lbs");
+
+        
+
+        console.log(weight_on_planet);
+
+    }
+
+    $("#input-btn").click(planetaryWeight);
+    $(".planet").click(setSurfaceGravity);
+>>>>>>> master
 });
