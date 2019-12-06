@@ -134,9 +134,16 @@ $(document).ready(function () {
             let stay_p = $("<p>");
             let trip_back_p = $("<p>");
 
+            name_h.addClass("neo-name");
             name_h.text(response.fullname);
-            max_size_p.text(response.max_size);
-            delta_v_p.text();
+            max_size_p.text("Max size: " + response.max_size + " meters");
+            delta_v_p.text("Speed required after departing Earth: " + response.min_dur_traj.dv_dep_park + " km/s");
+            trip_there_p.text("How long to get there: " + response.min_dur_traj.dur_out + " days");
+            stay_p.text("How long at the object: " + response.min_dur_traj.dur_at + " days");
+            trip_back_p.text("How many days to get home: " + response.min_dur_traj.dur_ret + " days");
+
+            $(".card3-text").append(name_h, delta_v_p, max_size_p, trip_there_p, stay_p, trip_back_p);
+
         });
     }
     
