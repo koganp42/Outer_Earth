@@ -223,30 +223,33 @@ accessMissionTargets();
 
 
     //Start of ISS Functionality Section
-    function locationISS () {
+    function findIssCountry(issLat, issLong) {
+        let googleMapsApiKey = "AIzaSyC7CPQ1X9wc7M8DGKJf2r1ykN2thMRttiQ";
+        let queryURL = "https://maps.googleapis.com/maps/api/geocode/json?latlng=" + issLat + "," + issLong + "&result_type=country&key=" + googleMapsApiKey;
         $.ajax({
             url: queryURL,
             method: "GET",
             }).then(function(response) {
                 console.log(response);
-                let imageEl = $("#npodImg");
-                let videoEl = $(`<iframe class="picOfDay" id="videoOfDay" src=${response.url}></iframe>`)
-                if(response.media_type == "video"){
-                    imageEl.replaceWith(videoEl);
-                } else if(response.hdurl !== undefined){
-                    $(".picOfDay").attr("src", response.hdurl)
-                } else {
-                    $(".picOfDay").attr("src", response.url)
-                }; 
-            $("#PotdTitle").text(response.title);
-            $("#PotdInfo").text(response.explanation);
+                let issCountry = response.results[0].formatted_address;
+                $("#current-country").text(issCountry);
+            });
+    }
+    function geoLocationISS () {
+        let queryURL = "http://api.open-notify.org/iss-now.json";
+        //Interval will go here
+        $.ajax({
+            url: queryURL,
+            method: "GET",
+            }).then(function(response) {
+                console.log(response);
+                let issLat = parseFloat(response.iss_position.latitude);
+                let issLong = parseFloat(response.iss_position.longitude);
+                console.log("This is the ISS current coordinates", + issLat, issLong);
+                findIssCountry(issLat, issLong);
+    
             });    
     } 
-
-    locationISS();
-
-    //End of ISS Functionality Section
-
-
+    geoLocationISS();
 
 });
