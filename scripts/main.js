@@ -213,19 +213,15 @@ accessMissionTargets();
     //accessing neo api call
 
     
-<<<<<<< HEAD
-=======
 
 
 
->>>>>>> master
 
 
 
 
     //Start of ISS Functionality Section
 
-<<<<<<< HEAD
     //This function finds the location of the ISS based on the coordinates passed from the geoLocationISS function it's called in.
     function findIssCountry(issLat, issLong) {
         let googleMapsApiKey = "AIzaSyC7CPQ1X9wc7M8DGKJf2r1ykN2thMRttiQ";
@@ -256,14 +252,20 @@ accessMissionTargets();
     } 
     geoLocationISS();
     //The function below will find the next time the ISS will pass by a user's location, then count down to that time.
-    function findPassTime(){
-        let userLocation = navigator.geolocation.getCurrentPosition();
-        console.log(userLocation);
-    }   
-    findPassTime();
-=======
+    // function findPassTime(){
+    //     function getLocation() {
+    //         if (navigator.geolocation) {
+    //           navigator.geolocation.getCurrentPosition(showPosition);
+    //         } else {
+    //           x.innerHTML = "Geolocation is not supported by this browser.";
+    //         }
+    //       }
+    //       console.log(getLocation);
+          
+    // }   
+    // findPassTime();
 
-
+    //End of ISS Functionality
 
 
 
@@ -294,5 +296,4 @@ accessMissionTargets();
 
     $("#input-btn").click(planetaryWeight);
     $(".planet").click(setSurfaceGravity);
->>>>>>> master
 });
