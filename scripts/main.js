@@ -246,24 +246,36 @@ accessMissionTargets();
                 console.log(response);
                 let issLat = parseFloat(response.iss_position.latitude);
                 let issLong = parseFloat(response.iss_position.longitude);
-                console.log("This is the ISS current coordinates", + issLat, issLong);
+                console.log(`This is the ISS's current coordinates: ${issLat}, ${issLong}`);
                 findIssCountry(issLat, issLong);
             });    
     } 
     geoLocationISS();
+
     //The function below will find the next time the ISS will pass by a user's location, then count down to that time.
-    // function findPassTime(){
-    //     function getLocation() {
-    //         if (navigator.geolocation) {
-    //           navigator.geolocation.getCurrentPosition(showPosition);
-    //         } else {
-    //           x.innerHTML = "Geolocation is not supported by this browser.";
-    //         }
-    //       }
-    //       console.log(getLocation);
-          
-    // }   
-    // findPassTime();
+        //This currently doesn't work due to a CORS block so I'm commenting it out.
+
+    // function findUserCoordinates(){
+    //     navigator.geolocation.getCurrentPosition(function(position) {
+    //         console.log(`The user's current coordinates are: ${position.coords.latitude}, ${position.coords.longitude}`);
+    //         let userLat = position.coords.latitude;
+           
+
+    //         let userLong = position.coords.latitude;
+    //         findPassTime(userLat, userLong);        
+    //       });
+    // };
+    // findUserCoordinates();
+    // function findPassTime(userLat, userLong){
+    //     let queryURL = `http://api.open-notify.org/iss-pass.json?lat=${userLat}&lon=${userLong}&callback=CALLBACK`;
+    //     $.ajax({
+    //         url: queryURL,
+    //         method: "GET",
+    //         }).then(function(response) {
+    //             console.log(response);
+    //             //$("#ISS-pass-time")
+    //         });
+    // };
 
     //End of ISS Functionality
 
