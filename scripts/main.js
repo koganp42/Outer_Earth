@@ -106,7 +106,8 @@ $(document).ready(function () {
                 }; 
             $("#PotdTitle").text(response.title);
             $("#PotdInfo").text(response.explanation);
-            });    }
+            });    
+        }
     //End of NASA Pic of Day API Call Section
     getPicOfDay();
 
@@ -119,14 +120,53 @@ $(document).ready(function () {
 
 
 
+//accessing possible mission targets
+    function callTargetApis(id){
+        $.ajax({
+            url: "https://ssd-api.jpl.nasa.gov/nhats.api?des=" + id,
+            method: "GET"
+        }).then(function(response){
+            console.log(response);
+            //write the information into the html
+            let name_h = $("<h4>");
+            let delta_v_p = $("<p>");
+            let max_size_p = $("<p>");
+            let trip_there_p = $("<p>");
+            let stay_p = $("<p>");
+            let trip_back_p = $("<p>");
+
+            name_h.addClass("neo-name");
+            name_h.text(response.fullname);
+            max_size_p.text("Max size: " + response.max_size + " meters");
+            delta_v_p.text("Speed required after departing Earth: " + response.min_dur_traj.dv_dep_park + " km/s");
+            trip_there_p.text("How long to get there: " + response.min_dur_traj.dur_out + " days");
+            stay_p.text("How long at the object: " + response.min_dur_traj.dur_at + " days");
+            trip_back_p.text("How many days to get home: " + response.min_dur_traj.dur_ret + " days");
+
+            $(".card3-text").append(name_h, delta_v_p, max_size_p, trip_there_p, stay_p, trip_back_p);
+
+        });
+    }
+    
+    function accessMissionTargets(){
+        //ajax call to get possible mission targets unconstrained
+        $.ajax({
+            url: "https://ssd-api.jpl.nasa.gov/nhats.api",
+            method: "GET"
+        }).then(function(response){
+            console.log(response);
+        });
+
+           //ajax call to get data on specific objects
+        callTargetApis("4660");
+        callTargetApis("10302");
+        callTargetApis("3361");
+    }
+accessMissionTargets();
+//accessing possible mission targets
 
 
-
-
-
-
-
-
+//accessing neo api call
     function accessNeO() {
         //call the near earth object api and attain data from it
         let appID = "8phoKd5HeuFQGjXL2rQjtHLqkeY9a3xlESjPpoGL";
@@ -175,22 +215,37 @@ $(document).ready(function () {
 
     }
     accessNeO();
-    console.log(moment().date());
-    console.log(moment().year());
-    console.log(moment().month());
-    console.log(moment().year() + "-" + moment().month() + "-" + moment().date());
+    //accessing neo api call
+
+    
 
 
 
 
+    //Start of ISS Functionality Section
+    function locationISS () {
+        $.ajax({
+            url: queryURL,
+            method: "GET",
+            }).then(function(response) {
+                console.log(response);
+                let imageEl = $("#npodImg");
+                let videoEl = $(`<iframe class="picOfDay" id="videoOfDay" src=${response.url}></iframe>`)
+                if(response.media_type == "video"){
+                    imageEl.replaceWith(videoEl);
+                } else if(response.hdurl !== undefined){
+                    $(".picOfDay").attr("src", response.hdurl)
+                } else {
+                    $(".picOfDay").attr("src", response.url)
+                }; 
+            $("#PotdTitle").text(response.title);
+            $("#PotdInfo").text(response.explanation);
+            });    
+    } 
 
+    locationISS();
 
-
-
-
-
-
-
+    //End of ISS Functionality Section
 
 
 
