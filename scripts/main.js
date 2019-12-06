@@ -223,9 +223,11 @@ accessMissionTargets();
 
 
     //Start of ISS Functionality Section
+
+    //This function finds the location of the ISS based on the coordinates passed from the geoLocationISS function it's called in.
     function findIssCountry(issLat, issLong) {
         let googleMapsApiKey = "AIzaSyC7CPQ1X9wc7M8DGKJf2r1ykN2thMRttiQ";
-        let queryURL = "https://maps.googleapis.com/maps/api/geocode/json?latlng=" + issLat + "," + issLong + "&result_type=country&key=" + googleMapsApiKey;
+        let queryURL = "https://maps.googleapis.com/maps/api/geocode/json?latlng=" + issLat + "," + issLong + "&result_type=country|natural_feature&key=" + googleMapsApiKey;
         $.ajax({
             url: queryURL,
             method: "GET",
@@ -235,6 +237,7 @@ accessMissionTargets();
                 $("#current-country").text(issCountry);
             });
     }
+    //This function gets the coordinates of the ISS and calls the findIssCountry function.
     function geoLocationISS () {
         let queryURL = "http://api.open-notify.org/iss-now.json";
         //Interval will go here
@@ -247,9 +250,13 @@ accessMissionTargets();
                 let issLong = parseFloat(response.iss_position.longitude);
                 console.log("This is the ISS current coordinates", + issLat, issLong);
                 findIssCountry(issLat, issLong);
-    
             });    
     } 
     geoLocationISS();
+    //The function below will find the next time the ISS will pass by a user's location, then count down to that time.
+    function findPassTime(){
+        let userLocation = navigator.geolocation.getCurrentPosition();
+        
+    }   
 
 });
