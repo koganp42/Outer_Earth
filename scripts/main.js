@@ -106,7 +106,8 @@ $(document).ready(function () {
                 }; 
             $("#PotdTitle").text(response.title);
             $("#PotdInfo").text(response.explanation);
-            });    }
+            });    
+        }
     //End of NASA Pic of Day API Call Section
     getPicOfDay();
 
@@ -180,17 +181,35 @@ $(document).ready(function () {
     console.log(moment().month());
     console.log(moment().year() + "-" + moment().month() + "-" + moment().date());
 
+    
 
 
 
 
+    //Start of ISS Functionality Section
+    function locationISS () {
+        $.ajax({
+            url: queryURL,
+            method: "GET",
+            }).then(function(response) {
+                console.log(response);
+                let imageEl = $("#npodImg");
+                let videoEl = $(`<iframe class="picOfDay" id="videoOfDay" src=${response.url}></iframe>`)
+                if(response.media_type == "video"){
+                    imageEl.replaceWith(videoEl);
+                } else if(response.hdurl !== undefined){
+                    $(".picOfDay").attr("src", response.hdurl)
+                } else {
+                    $(".picOfDay").attr("src", response.url)
+                }; 
+            $("#PotdTitle").text(response.title);
+            $("#PotdInfo").text(response.explanation);
+            });    
+    } 
 
+    locationISS();
 
-
-
-
-
-
+    //End of ISS Functionality Section
 
 
 
