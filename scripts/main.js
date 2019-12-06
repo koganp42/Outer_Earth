@@ -236,14 +236,15 @@ accessMissionTargets();
     }
 
     function planetaryWeight(){
+        $("#weight-on-planet").empty();
         let weight = $("#userWeight").val();
         let surface_gravity = $("#userWeight").attr("data-sg");
         let weight_on_planet = weight * surface_gravity;
         
-        let weight_p = $("<p>");
-        weight_p.text("On " + $("#solarModalHeader").text() + " you weigh  " + weight_on_planet + " lbs");
+        
+        $("#weight-on-planet").text("On " + $("#solarModalHeader").text() + " you weigh  " + weight_on_planet.toFixed(2) + " lbs");
 
-        $("#planet-weight").append(weight_p);
+        
 
         console.log(weight_on_planet);
 
