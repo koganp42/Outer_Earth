@@ -255,27 +255,37 @@ accessMissionTargets();
     //The function below will find the next time the ISS will pass by a user's location, then count down to that time.
         //This currently doesn't work due to a CORS block so I'm commenting it out.
 
-    // function findUserCoordinates(){
-    //     navigator.geolocation.getCurrentPosition(function(position) {
-    //         console.log(`The user's current coordinates are: ${position.coords.latitude}, ${position.coords.longitude}`);
-    //         let userLat = position.coords.latitude;
-           
-
-    //         let userLong = position.coords.latitude;
-    //         findPassTime(userLat, userLong);        
-    //       });
-    // };
-    // findUserCoordinates();
-    // function findPassTime(userLat, userLong){
-    //     let queryURL = `http://api.open-notify.org/iss-pass.json?lat=${userLat}&lon=${userLong}&callback=CALLBACK`;
-    //     $.ajax({
-    //         url: queryURL,
-    //         method: "GET",
-    //         }).then(function(response) {
-    //             console.log(response);
-    //             //$("#ISS-pass-time")
-    //         });
-    // };
+    function findUserCoordinates(){
+        navigator.geolocation.getCurrentPosition(function(position) {
+            console.log(`The user's current coordinates are: ${position.coords.latitude}, ${position.coords.longitude}`);
+            let userLat = position.coords.latitude;
+            let userLong = position.coords.latitude;
+            findPassTime(userLat, userLong);        
+          });
+    };
+    findUserCoordinates();
+    function findPassTime(userLat, userLong){
+        let queryURL = `http://api.open-notify.org/iss-pass.json?lat=${userLat}&lon=${userLong}`;
+        $.ajax({
+            url: queryURL,
+            method: "GET",
+            dataType: "JSONP",
+            }).then(function(response) {
+                console.log(response);
+                console.log(response.response[0].risetime)
+                let unixTimeStamp = response.response[0].risetime;
+                let date = new Date(unixTimeStamp*1000);
+                let day = date.getDate();
+                let hours = date.getHours();
+                let minutes = "0" + date.getMinutes();
+                let seconds = "0" + date.getSeconds();
+                let formattedTime = hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
+                console.log(date);
+                console.log(day);
+                console.log(formattedTime);
+                let next
+            });
+    };
 
     //End of ISS Functionality
 
