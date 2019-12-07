@@ -11,43 +11,70 @@ body {
   overflow-x: hidden;
 
 }
-
-.preload{
-  position:fixed;
-  background: black;
-  top: 0;
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: opacity 0.5 ease;
-}
-.preload-finish{
-  opacity:0;
-  pointer-events: none;
-}
-
-.loadText{
-  font-family: sans-serif;
-  font-size: 9vmin;
-  color: #22c1c3;
-  text-align: center;
+.baby-yoda{
+  width: 200px;
+  position: absolute;
+  top: 10%;
   animation-name: swell;
   animation-iteration-count: infinite;
   animation-duration: 2s;
   animation-direction: alternate;
 }
 
+.b2{
+  width: 200px;
+  position: absolute;
+  top: 10%;
+  animation-name: right;
+  animation-iteration-count: infinite;
+  animation-duration: 2s;
+  animation-direction: alternate;
+}
+.preload{
+  position:fixed;
+  background-image: url(/assets/images/seaOfStars.jpg);
+  background-size: cover;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 1s ease; 
+  z-index: 1;
+
+}
+.preload-finish{
+  animation-name: flipOutX;
+  opacity:0;
+  pointer-events: none;
+}
+
+.loadText{
+  font-family: "Orbitron", sans-serif;
+  font-size: 9vmin;
+  color: #22c1c3;
+  text-align: center;
+ 
+}
+
 @keyframes swell{
   0%{
-    transform: scale(0.5)
+    left: -20%;
   }
   100%{
-    transform: scale(1.1);
+    Left: 80%;
   }
 }
 
+@keyframes right{
+  0%{
+    right: -20%;
+  }
+  100%{
+    right: 80%;
+  }
+}
 #j-tron {
   opacity: 0.8;
   width: 80%;
