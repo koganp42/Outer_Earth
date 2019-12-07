@@ -181,7 +181,6 @@ accessMissionTargets();
     accessNeO();
     //accessing neo api call
 
-<<<<<<< HEAD
     
 
 
@@ -218,7 +217,26 @@ accessMissionTargets();
                 let issLong = parseFloat(response.iss_position.longitude);
                 console.log(`This is the ISS's current coordinates: ${issLat}, ${issLong}`);
                 findIssCountry(issLat, issLong);
-                
+                // let map = L.map('issMap', {
+                //     center: [issLat, issLong],
+                //     zoom: 20,
+                //     maxzoom: 20,
+                //     minzoom: 3
+                // });
+                // L.tileLayer('https://api.mapbox.com/styles/v1/{id}/static/auto/300x300?access_token={accessToken}', {
+                //     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+                //     maxZoom: 20,
+                //     id: 'mapbox/satellite-v9',
+                //     accessToken: 'pk.eyJ1Ijoia29nYW5wNDIiLCJhIjoiY2szdzFtcmI0MHMyejNqcGRqcmI2dnZuOSJ9.7YUzCLkvXsTXW0s2L8Nj-Q'
+                // }).addTo(map);
+
+                let mymap = L.map('issMap').setView([0, 0], 2.4,);
+                L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+                attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+                maxzoom: 2.4,
+                id: 'mapbox/satellite-v9',
+                accessToken: 'pk.eyJ1Ijoia29nYW5wNDIiLCJhIjoiY2szdzFtcmI0MHMyejNqcGRqcmI2dnZuOSJ9.7YUzCLkvXsTXW0s2L8Nj-Q'
+                }).addTo(mymap);
             });    
     } 
     geoLocationISS();
@@ -268,18 +286,12 @@ accessMissionTargets();
     // }
     //  createIssMap();    
 
-    let map = L.map('issMap', {
-        center: [0, 0],
-        zoom: 2
-    });
     
 
     //End of ISS Functionality
 
 
 
-=======
->>>>>>> master
     function setSurfaceGravity(){
         
         

@@ -466,11 +466,8 @@ border-radius: 50%;
   color: whitesmoke;
   padding: 5px;
   position: absolute;
-<<<<<<< HEAD
   left: 20%;
   
-=======
->>>>>>> master
 }
 
 #userWeight:focus{
@@ -478,5 +475,5 @@ border-radius: 50%;
 }
 
 #issMap{ 
-  height: 180px; 
+  height: 400px; 
 }
