@@ -50,20 +50,7 @@ $(document).ready(function () {
             $("#neoCard").css("display", "block");
         });
     });
-    //empty #weight-on-planet on close and x buttons
-    $("#planet-close").click(function(){
-        $("#weight-on-planet").empty();
-    });
-    $(".close").click(function(){
-        $("#weight-on-planet").empty();
-    });
-    function modalShown(){
-        if(!$("#planetModal").is(" :visible")){
-            $("#weight-on-planet").empty();
-        }
-    }
-    modalShown();
-    //empty #weight-on-planet on close and x buttons
+   
     //POTD Modal//
     $(".info").on("click", function () {
         $("#myModal").modal("show");
@@ -198,7 +185,8 @@ accessMissionTargets();
     //accessing neo api call
 
     function setSurfaceGravity(){
-        
+        $("#weight-on-planet").empty();
+        $("#userWeight").val("");
         
         console.log($(this).attr("id"));
         $("#solarModalHeader").text($(this).attr("id"));
