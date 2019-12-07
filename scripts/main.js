@@ -269,6 +269,15 @@ accessMissionTargets();
             day_length: "0.67",
             year_length: "164.8 years"
         };
+
+        
+        let pluto = {
+            moons: "5",
+            surface_temp: "-223 &deg;C",
+            mass: "0.002",
+            day_length: "6.4",
+            year_length: "248 years"
+        }
     }
 
     $("#input-btn").click(planetaryWeight);
