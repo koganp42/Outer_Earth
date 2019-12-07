@@ -272,18 +272,15 @@ accessMissionTargets();
             dataType: "JSONP",
             }).then(function(response) {
                 console.log(response);
-                console.log(response.response[0].risetime)
                 let unixTimeStamp = response.response[0].risetime;
-                let date = new Date(unixTimeStamp*1000);
-                let day = date.getDate();
-                let hours = date.getHours();
-                let minutes = "0" + date.getMinutes();
-                let seconds = "0" + date.getSeconds();
-                let formattedTime = hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
-                console.log(date);
-                console.log(day);
-                console.log(formattedTime);
-                let next
+                let passDate = new Date(unixTimeStamp*1000);
+                let day = passDate.getDate();
+                let hours = passDate.getHours();
+                let minutes = "0" + passDate.getMinutes();
+                let seconds = "0" + passDate.getSeconds();
+                let formattedPassTime = hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
+                let nextPassDisplayFormat = passDate.toDateString();
+                $("#ISS-pass-time").text(`The ISS will next be over your location at: ${formattedPassTime} on ${nextPassDisplayFormat}`);
             });
     };
 
