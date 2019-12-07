@@ -212,85 +212,90 @@ accessMissionTargets();
     }
 
     function setPlanetaryFacts(){
-        let mercury = {
-            moons: "0",
-            surface_temp: "-200 to 400 &deg;C",
-            mass: "0.055",
-            year_length: "88",
-            day_length: "176"
-        };
-    
-        let venus = {
-            moons: "0",
-            surface_temp: "460 &deg;C",
-            mass: "0.82",
-            year_length: "225",
-            day_length: "117"
-        };
-    
-        let moon = {
-            surface_temp: "-130 to 120 &deg;C",
-            mass: "0.055",
-            day_length: "29.5",
-            year_length: "27"
-        };
-    
-        let mars = {
-            moons: "2",
-            surface_temp: "-150 to 20 &deg;C",
-            mass: "0.11",
-            day_length: "1.03",
-            year_length: "687"
-        };
-    
-        let jupiter = {
-            moons: "63",
-            surface_temp: "-110 &deg;C",
-            mass: "318",
-            day_length: "0.41",
-            year_length: "11.9 years"
-        };
-    
-        let saturn = {
-            moons: "60",
-            surface_temp: "-140 &deg;C",
-            mass: "95.2",
-            day_length: "0.43",
-            year_length: "29.45 years"
-        };
-    
-        let uranus = {
-            moons: "27",
-            surface_temp: "-190 &deg;C",
-            mass: "14.5",
-            day_length: "0.75",
-            year_length: "84 years"
-        };
-        
-        let neptune = {
-            moons: "13",
-            surface_temp: "-200 &deg;C",
-            mass: "17.1",
-            day_length: "0.67",
-            year_length: "164.8 years"
-        };
-    
-        
-        let pluto = {
-            moons: "5",
-            surface_temp: "-223 &deg;C",
-            mass: "0.002",
-            day_length: "6.4",
-            year_length: "248 years"
+        let planets = {
+            "mercury" : {
+                moons: "0",
+                surface_temp: "-200 to 400 &deg;C",
+                mass: "0.055",
+                year_length: "88",
+                day_length: "176"
+            },
+            "venus" : {
+                moons: "0",
+                surface_temp: "460 &deg;C",
+                mass: "0.82",
+                year_length: "225",
+                day_length: "117"
+            },
+            "moon": {
+                surface_temp: "-130 to 120 &deg;C",
+                mass: "0.055",
+                day_length: "29.5",
+                year_length: "27"
+            },
+            "mars" : {
+                moons: "2",
+                surface_temp: "-150 to 20 &deg;C",
+                mass: "0.11",
+                day_length: "1.03",
+                year_length: "687"
+            },
+            "jupiter" :{
+                moons: "63",
+                surface_temp: "-110 &deg;C",
+                mass: "318",
+                day_length: "0.41",
+                year_length: "11.9 years"
+            },
+            "saturn" : {
+                moons: "60",
+                surface_temp: "-140 &deg;C",
+                mass: "95.2",
+                day_length: "0.43",
+                year_length: "29.45 years"
+            },
+            "uranus" : {
+                moons: "27",
+                surface_temp: "-190 &deg;C",
+                mass: "14.5",
+                day_length: "0.75",
+                year_length: "84 years"
+            },
+            "neptune" : {
+                moons: "13",
+                surface_temp: "-200 &deg;C",
+                mass: "17.1",
+                day_length: "0.67",
+                year_length: "164.8 years"
+            },
+            "pluto" : {
+                moons: "5",
+                surface_temp: "-223 &deg;C",
+                mass: "0.002",
+                day_length: "6.4",
+                year_length: "248 years"
+            }
         }
-
+     
+    
+      
+        
+       
+    
+        
+    
+       
+        
+        
+        
+        
         let current_planet = $(this).attr("id");
         current_planet = current_planet.toLowerCase();
         
         console.log("this log is the planet" + current_planet);
         
         console.log(typeof current_planet);
-        $("#planet-moons").text(current_planet + " has " + current_planet.moons + " moons");
+        $("#planet-moons").text(current_planet + " has " + planets[current_planet].moons + " moons");
 
     }
 
