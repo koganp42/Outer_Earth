@@ -1,13 +1,18 @@
+
 $(document).ready(function () {
 
     //front end styles//
 
     // PreLoad Function//
-    window.addEventListener('load',function(){
-        let preload = document.querySelector('.preload');
-        preload.classList.add("preload-finish");
-    });
-
+    $(window).on("load", function(){
+        setTimeout(function(){
+        $('.preload').slideUp('slow', function() {
+          $(this).remove();
+        });
+    },3500);
+      });
+    
+    
     //gsap/scroll magic//
 
     let controller = new ScrollMagic.Controller();
