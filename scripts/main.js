@@ -248,6 +248,12 @@ accessMissionTargets();
                 let issLong = parseFloat(response.iss_position.longitude);
                 console.log(`This is the ISS's current coordinates: ${issLat}, ${issLong}`);
                 findIssCountry(issLat, issLong);
+                let issMapInit = L.map('issMap', {
+                    minzoom: 0,
+                    maxzoom: 0,
+                    
+                });
+                issMapInit();
             });    
     } 
     geoLocationISS();
@@ -283,6 +289,9 @@ accessMissionTargets();
                 $("#ISS-pass-time").text(`The ISS will next be over your location at: ${formattedPassTime} on ${nextPassDisplayFormat}`);
             });
     };
+
+    //The next section deals with creating a map display showing the ISS's current location. This may render the country-location function above unnecessary.
+    
 
     //End of ISS Functionality
 

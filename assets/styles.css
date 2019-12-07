@@ -464,3 +464,7 @@ border-radius: 50%;
 #userWeight:focus{
   outline-color: #22c1c3;
 }
+
+#mapid{ 
+  height: 180px; 
+}
