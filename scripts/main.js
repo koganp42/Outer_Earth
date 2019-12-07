@@ -1,14 +1,12 @@
 $(document).ready(function () {
 
-
     //front end styles//
 
-    //PreLoad Function//
+    // PreLoad Function//
     window.addEventListener('load',function(){
         let preload = document.querySelector('.preload');
         preload.classList.add("preload-finish");
     });
-
 
     //gsap/scroll magic//
 
@@ -39,7 +37,6 @@ $(document).ready(function () {
         .addTo(controller);
     //gsap/scroll magic//
 
-
     $(".comet-card").css("display", "none");
     $("#neoCard").on("click", function () {
         $("#neoCard").css("display", "none");
@@ -60,28 +57,12 @@ $(document).ready(function () {
         $("#issModal").modal("show");
     });
 
-
     //SOLAR MODAL//
-
     $(".col-").on("click",function(){
         $("#planetModal").modal("show");
     });
     
     //front end styles//
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     //NASA Pic of the Day API Call
@@ -110,15 +91,6 @@ $(document).ready(function () {
     //End of NASA Pic of Day API Call Section
     getPicOfDay();
 
-
-
-
-
-
-
-
-
-
 //accessing possible mission targets
     function callTargetApis(id){
         $.ajax({
@@ -143,14 +115,12 @@ $(document).ready(function () {
             trip_back_p.text("How many days to get home: " + response.min_dur_traj.dur_ret + " days");
 
             $(".card3-text").append(name_h, delta_v_p, max_size_p, trip_there_p, stay_p, trip_back_p);
-
         });
     }
     
     function accessMissionTargets(){
         //ajax call to get possible mission targets unconstrained
-        
-
+    
            //ajax call to get data on specific objects
         callTargetApis("4660");
         callTargetApis("10302");
@@ -170,7 +140,6 @@ accessMissionTargets();
         let month = moment().month() + 1;
         let day = moment().date();
         day = moment().format("DD");
-
 
         // let start_date = moment().year() + "-" +  moment().month() + "-" + moment().date();
         let start_date = year + "-" + month + "-" + day;
@@ -211,20 +180,6 @@ accessMissionTargets();
     accessNeO();
     //accessing neo api call
 
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
     function setSurfaceGravity(){
         
         
@@ -240,16 +195,11 @@ accessMissionTargets();
         let weight = $("#userWeight").val();
         let surface_gravity = $("#userWeight").attr("data-sg");
         let weight_on_planet = weight * surface_gravity;
-        
-        
+             
         $("#weight-on-planet").text("On " + $("#solarModalHeader").text() + " you weigh  " + weight_on_planet.toFixed(2) + " lbs");
 
-        
-
         console.log(weight_on_planet);
-
     }
-
     $("#input-btn").click(planetaryWeight);
     $(".planet").click(setSurfaceGravity);
 });
