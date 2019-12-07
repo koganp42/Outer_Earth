@@ -1,13 +1,18 @@
+
 $(document).ready(function () {
 
     //front end styles//
 
     // PreLoad Function//
-    window.addEventListener('load',function(){
-        let preload = document.querySelector('.preload');
-        preload.classList.add("preload-finish");
-    });
-
+    $(window).on("load", function(){
+        setTimeout(function(){
+        $('.preload').slideUp('slow', function() {
+          $(this).remove();
+        });
+    },3500);
+      });
+    
+    
     //gsap/scroll magic//
 
     let controller = new ScrollMagic.Controller();
@@ -39,14 +44,18 @@ $(document).ready(function () {
 
     $(".comet-card").css("display", "none");
     $("#neoCard").on("click", function () {
+       
         $("#neoCard").css("display", "none");
         $(".comet-card").css("display", "block").fadeIn();
 
         $('.close-icon').on('click', function () {
+           
+           
             $(this).closest('.card').fadeOut();
             $("#neoCard").css("display", "block");
         });
     });
+   
     //POTD Modal//
     $(".info").on("click", function () {
         $("#myModal").modal("show");
@@ -294,7 +303,8 @@ accessMissionTargets();
 
 
     function setSurfaceGravity(){
-        
+        $("#weight-on-planet").empty();
+        $("#userWeight").val("");
         
         console.log($(this).attr("id"));
         $("#solarModalHeader").text($(this).attr("id"));
