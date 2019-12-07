@@ -239,14 +239,16 @@ accessMissionTargets();
                 //     accessToken: 'pk.eyJ1Ijoia29nYW5wNDIiLCJhIjoiY2szdzFtcmI0MHMyejNqcGRqcmI2dnZuOSJ9.7YUzCLkvXsTXW0s2L8Nj-Q'
                 // }).addTo(map);
 
-                let mymap = L.map('issMap').setView([0, 0], 2.4,);
+                let mymap = L.map('issMap', {
+                    maxzoom: 2.3,
+                    minzoom: 2.3
+                }).setView([0, 0], 2.3,);
                 L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
                 attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-                maxzoom: 2.4,
-                minzoom: 2.4,
                 id: 'mapbox/satellite-v9',
                 accessToken: 'pk.eyJ1Ijoia29nYW5wNDIiLCJhIjoiY2szdzFtcmI0MHMyejNqcGRqcmI2dnZuOSJ9.7YUzCLkvXsTXW0s2L8Nj-Q'
                 }).addTo(mymap);
+                L.control.zoom(`<Control.Zoom options> false`);
             });    
     } 
     geoLocationISS();
