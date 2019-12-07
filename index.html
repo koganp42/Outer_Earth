@@ -17,7 +17,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Orbitron&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz&display=swap" rel="stylesheet">
-
     <link rel="stylesheet" type="text/css" href="assets/styles.css">
     <title>OUTER-EARTH</title>
 </head>
@@ -25,24 +24,18 @@
 <body>
     <!-------------Website Pre-Loader------------->
     <div class="preload">
-
         <h2 class="loadText">Contacting NASA Satellites...</h2>
     </div>
-
-
     <!---------HEADER LOGO------------------>
-
     <div class="jumbotron-fluid .container-fluid col-12 " id="j-tron">
         <h1 id="mainText" class="logoText">OUTER-EARTH</h1>
         <p class="sub-title">Infinite Exploration</p>
     </div>
-
     <!---Picture of the day can go here-->
-    <div class="col-lg-8 col-md-10 col-sm-12 mx-auto my-5" id="picOfDayContainer">
+    <div class="col-lg-12 col-md-12 col-sm-12 container-fluid mx-auto my-5" id="picOfDayContainer">
         <p class="sub-title" id="subTitle">NASA Pic of the day</p>
-        <img id="npodImg" class="picOfDay img-fluid" src="assets/images/baby yoda.png"
+        <img id="npodImg" class="picOfDay img-fluid" src=""
             alt="Picture of the day from NASA">
-
         <!-- Button trigger modal -->
         <button type="button" class="btn  info" data-toggle="modal" data-target="#exampleModalCenter">
             Learn More
@@ -69,18 +62,12 @@
             </div>
         </div>
     </div>
-
     <!---Near earth objects button/image-->
-    <div class="col-lg-6 col-m-6 col-sm-6 mx-auto my-5 " id="neoCard">
+    <div class="col-lg-6 col-m-10 col-sm-10 mx-auto my-5 " id="neoCard">
         <h1 class="sub-title">Near Earth Objects</h1>
         <img class="neoImage img-fluid" src="assets/images/earth.png" alt="Picture of the day from NASA">
     </div>
-
     <!---------Some classes remain the same across cards  Feel free to input your own ID'S for api placemnent if needed-->
-
-
-
-
     <!--Card #2-->
     <div class="card comet-card col-8 animated flipInX">
         <span class="pull-right clickable close-icon" data-effect="fadeOut"><i class="fa fa-window-close"></i></span>
@@ -89,12 +76,12 @@
         <div class="card-body" id="neo-card">
             <h1 class="centered"> Current Objects Near Earth</h1>
             <h4 class=".card-title" id="neo-title"></h4>
-            <p class="card2-text">Near Earth objects are any comets or asteroids that have been "pushed" into earth's area in space by the gravitational attraction of other planets. Displayed below are a few objects that will be approaching close to Earth today!
+            <p class="card2-text">Near Earth objects are any comets or asteroids that have been "pushed" into earth's
+                area in space by the gravitational attraction of other planets. Displayed below are a few objects that
+                will be approaching close to Earth today!
             </p>
         </div>
     </div>
-
-
     <!-----------------Card #3---------->
     <div class="card comet-card col-8 animated flipInX">
         <span class="pull-right clickable close-icon" data-effect="fadeOut"><i class="fa fa-window-close"></i></span>
@@ -103,22 +90,18 @@
         <div class="card-body">
             <h1 class="centered">Missions</h1>
             <h4 class=".card-title">Mission Targets</h4>
-            <p class="card3-text">These NeOs(near earth objects) have a possiblity to come close enough to have human crewed missions sent to them! Here are the minimum requirements for each NeO to obtain the minimum duration trajectory(minimum mission time).
-          
-                
+            <p class="card3-text">These NeOs(near earth objects) have a possiblity to come close enough to have human
+                crewed missions sent to them! Here are the minimum requirements for each NeO to obtain the minimum
+                duration trajectory(minimum mission time).
             </p>
         </div>
     </div>
-
-
-
     <!--ISS Main image-->
-    <div class="col-lg-10 col-md-10 col-sm-10 mx-auto my-5 " id="issCard">
+    <div class="col-lg-12 col-md-12 col-sm-12" id="issCard">
         <h1 class="sub-title">ISS Location</h1>
-        <img class="img-fluid  issImg" src="assets/images/hiclipart.com.png" alt="Picture of The ISS">
+        <img class="img-fluid issImg col-sm-12 col-md-8 col-lg-8" src="assets/images/hiclipart.com.png" alt="Picture of The ISS">
     </div>
-
-    <!-- Modal -->
+    <!-- issModal -->
     <div class="modal fade" id="issModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
         aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -138,42 +121,50 @@
             </div>
         </div>
     </div>
-
     <!--------------Solar System------->
-    <div class="container solar-container" id="solar-main">
-        <h1 class="mb-5">Click a Planet for fun!</h1>
-        <div class="row solar-row">
+    <div class="container solar-container col-lg-12 col-md-12 col-sm-12" id="solar-main">
+        <h1 class="mb2 solarHeadText">Click a Planet for fun facts!</h1>
+        <div class="row solar-row col-lg-12 col-md-12 col-sm-12">
 
             <div class="sunBefore m-auto px-2">
-                <img src="assets/images/sun.png" id = "Sun" class="col- sun planet" alt="Picture of the Sun">
+                <img src="assets/images/sun.png" id="Sun" class="col- sun planet" alt="Picture of the Sun">
             </div>
 
             <div class="mercuryBefore m-auto px-2">
-                <img src="assets/images/mercury.png" data-sg = " 0.38" id = "Mercury" class=" col- mercury planet" alt="Picture of mercury planet">
+                <img src="assets/images/mercury.png" data-sg=" 0.38" id="Mercury" class=" col- mercury planet"
+                    alt="Picture of mercury planet">
             </div>
             <div class="venusBefore m-auto px-2">
-                <img src="assets/images/venus.png"data-sg="0.91" id="Venus" class=" col- venus planet" alt="Picture of venus">
+                <img src="assets/images/venus.png" data-sg="0.91" id="Venus" class=" col- venus planet"
+                    alt="Picture of venus">
             </div>
             <div class="moonBefore m-auto px-2">
-                <img src="assets/images/moon.png"data-sg="0.166" id="Moon" class=" col- moon planet" alt="Picture of moon">
+                <img src="assets/images/moon.png" data-sg="0.166" id="Moon" class=" col- moon planet"
+                    alt="Picture of moon">
             </div>
             <div class="marsBefore m-auto px-2">
-                <img src="assets/images/mars.png"data-sg="0.38" id="Mars" class=" col- mars planet" alt="Picture of mars">
+                <img src="assets/images/mars.png" data-sg="0.38" id="Mars" class=" col- mars planet"
+                    alt="Picture of mars">
             </div>
             <div class="jupiterBefore m-auto px-2">
-                <img src="assets/images/jupiter.png" data-sg="2.34" id="Jupiter"class=" col- jupiter planet" alt="Picture of jupiter">
+                <img src="assets/images/jupiter.png" data-sg="2.34" id="Jupiter" class=" col- jupiter planet"
+                    alt="Picture of jupiter">
             </div>
             <div class="saturnBefore m-auto px-2">
-                <img src="assets/images/saturn.png" data-sg="0.93" id="Saturn" class=" col- saturn planet" alt="Picture of saturn">
+                <img src="assets/images/saturn.png" data-sg="0.93" id="Saturn" class=" col- saturn planet"
+                    alt="Picture of saturn">
             </div>
             <div class="uranusBefore m-auto px-2">
-                <img src="assets/images/uranas.png" data-sg="0.92" id="Uranus"class=" col- uranus planet" alt="Picture of uranus">
+                <img src="assets/images/uranas.png" data-sg="0.92" id="Uranus" class=" col- uranus planet"
+                    alt="Picture of uranus">
             </div>
             <div class="neptuneBefore m-auto px-2">
-                <img src="assets/images/neptune.png" data-sg="1.12" id="Neptune" class=" col- neptune planet" alt="Picture of neptune">
+                <img src="assets/images/neptune.png" data-sg="1.12" id="Neptune" class=" col- neptune planet"
+                    alt="Picture of neptune">
             </div>
             <div class="plutoBefore m-auto px-2">
-                <img src="assets/images/pluto.png" data-sg="0.62" id="Pluto" class=" col- pluto planet" alt="Picture of pluto">
+                <img src="assets/images/pluto.png" data-sg="0.62" id="Pluto" class=" col- pluto planet"
+                    alt="Picture of pluto">
             </div>
         </div>
     </div>
@@ -189,7 +180,7 @@
                     </button>
                 </div>
                 <div class="modal-body" id="planet-weight">
-                    <input  id="userWeight" data-sg="" class="" type="text" placeholder="Enter your Weight in Pounds">
+                    <input id="userWeight" data-sg="" class="" type="text" placeholder="Enter your Weight">
                     <button id="input-btn">ENTER</button>
                     <p id="weight-on-planet"></p>
                 </div>
@@ -199,12 +190,6 @@
             </div>
         </div>
     </div>
-   
-
-
-
-
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/animation.gsap.min.js"></script>
@@ -214,6 +199,5 @@
         crossorigin="anonymous"></script>
     <script src="scripts/main.js"></script>
 </body>
-
 
 </html>

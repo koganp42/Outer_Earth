@@ -90,18 +90,22 @@ h4{
 }
 
 .picOfDay {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  border: 0.2vw solid rgb(31, 33, 33);
-  border-radius: 6px;
+  max-height: 90vh;
+  min-width: 80%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  object-fit: cover;
+  border-radius: 15px;
   box-shadow: rgb(63, 207, 207) 0px 0px 12px;
 }
 
 #picOfDayContainer{
-  padding: 50px;
+  padding: 100px;
   opacity: 0;
-  transform: translateY(50px);
+  width: 100%;
+  transform: translateY(80px);
   transition: all 1s ease-out;
 }
 
@@ -111,8 +115,10 @@ h4{
 }
 
 .neoImage { 
-  width: 100%;
-  height: 100%;
+  width: 70%;
+  height: 70%;
+  display: flex;
+  margin: 0 auto;
   border-radius: 50%;
 }
 
@@ -151,6 +157,11 @@ h4{
   }
 }
 
+.issImg{
+  margin: 0 auto;
+  display: flex;
+}
+
 #issCard{
   padding: 80px;
   opacity: 0;
@@ -162,8 +173,6 @@ h4{
   opacity: 1;
   transform: translateY(0);
 }
-
-
 
 .comet-card {
   font-family: 'Yanone Kaffeesatz', sans-serif;
@@ -198,8 +207,10 @@ h4{
 }
 
 .info {
-  letter-spacing: 0.8rem;
-  font-weight: bolder;
+  margin: 0 auto;
+  display: flex;
+  letter-spacing: 2px;
+  border-radius: 4px;
   box-shadow: #22c1c3 0px 0px 5px;
   color: #22c1c3;
   background: transparent;
@@ -207,7 +218,7 @@ h4{
 }
 
 .info:hover {
-  color: lightseagreen;
+  color: yellowgreen;
   animation: pulse 2s ease-in-out;
 }
 .modal-header {
@@ -215,7 +226,6 @@ h4{
   font-family: "Orbitron", sans-serif;
   letter-spacing: 5px;
 }
-
 
 .modal-body {
   color: antiquewhite;
@@ -266,19 +276,18 @@ span:hover{
 
 
 .solar-container{
-height:100vh;
+max-height:100vh;
 margin: 100px auto;
 
 }
-
 
 .sun,.venus,
 .mercury,.moon,
 .jupiter,.uranus,
 .neptune,.pluto,
 .saturn,.mars{
- width: 25vw;
- height: 25vw;
+ width: 14vw;
+ height: 14vw;
  margin: 15px auto;
  padding-bottom: 0vw;
 cursor: pointer;
@@ -294,18 +303,17 @@ border-radius: 50%;
 }
 
 .saturn{
-  min-width: 25vw;
-  min-height: 25vw;
+  min-width: 14vw;
+  min-height: 14vw;
   border-radius: 10%;
 }
 
 /* Planet Names */
-
 .sunBefore::before{
   margin-bottom: -20px;
   text-align: center;
   display: block;
-  font-size: 4vw;
+  font-size: 3vw;
   font-family: 'Yanone Kaffeesatz', sans-serif;
   text-shadow: #22c1c3 0px 2px 2px;
   letter-spacing: 2px;
@@ -319,7 +327,7 @@ border-radius: 50%;
   margin-bottom: -20px;
   text-align: center;
   display: block;
-  font-size: 4vw;
+  font-size: 3vw;
   font-family: 'Yanone Kaffeesatz', sans-serif;
   text-shadow: #22c1c3 0px 2px 2px;
   letter-spacing: 2px;
@@ -333,7 +341,7 @@ border-radius: 50%;
   margin-bottom: -20px;
   text-align: center;
   display: block;
-  font-size: 4vw;
+  font-size: 3vw;
   font-family: 'Yanone Kaffeesatz', sans-serif;
   text-shadow: #22c1c3 0px 2px 2px;
   letter-spacing: 2px;
@@ -346,7 +354,7 @@ border-radius: 50%;
   margin-bottom: -20px;
   text-align: center;
   display: block;
-  font-size: 4vw;
+  font-size: 3vw;
   font-family: 'Yanone Kaffeesatz', sans-serif;
   text-shadow: #22c1c3 0px 2px 2px;
   letter-spacing: 2px;
@@ -359,7 +367,7 @@ border-radius: 50%;
   margin-bottom: -20px;
   text-align: center;
   display: block;
-  font-size: 4vw;
+  font-size: 3vw;
   font-family: 'Yanone Kaffeesatz', sans-serif;
   text-shadow: #22c1c3 0px 2px 2px;
   letter-spacing: 2px;
@@ -372,7 +380,7 @@ border-radius: 50%;
   margin-bottom: -20px;
   text-align: center;
   display: block;
-  font-size: 4vw;
+  font-size: 3vw;
   font-family: 'Yanone Kaffeesatz', sans-serif;
   text-shadow: #22c1c3 0px 2px 2px;
   letter-spacing: 2px;
@@ -386,7 +394,7 @@ border-radius: 50%;
   margin-bottom: -20px;
   text-align: center;
   display: block;
-  font-size: 4vw;
+  font-size: 3vw;
   font-family: 'Yanone Kaffeesatz', sans-serif;
   text-shadow: #22c1c3 0px 2px 2px;
   letter-spacing: 2px;
@@ -400,7 +408,7 @@ border-radius: 50%;
   margin-bottom: -20px;
   text-align: center;
   display: block;
-  font-size: 4vw;
+  font-size: 3vw;
   font-family: 'Yanone Kaffeesatz', sans-serif;
   text-shadow: #22c1c3 0px 2px 2px;
   letter-spacing: 2px;
@@ -414,7 +422,7 @@ border-radius: 50%;
   margin-bottom: -20px;
   text-align: center;
   display: block;
-  font-size: 4vw;
+  font-size: 3vw;
   font-family: 'Yanone Kaffeesatz', sans-serif;
   text-shadow: #22c1c3 0px 2px 2px;
   letter-spacing: 2px;
@@ -428,7 +436,7 @@ border-radius: 50%;
   margin-bottom: -20px;
   text-align: center;
   display: block;
-  font-size: 4vw;
+  font-size: 3vw;
   font-family: 'Yanone Kaffeesatz', sans-serif;
   text-shadow: #22c1c3 0px 2px 2px;
   letter-spacing: 2px;
@@ -437,6 +445,7 @@ border-radius: 50%;
   position: absolute;
   position: relative;
 }
+
 
 #solar-main{
   margin: 20% auto;
@@ -457,8 +466,6 @@ border-radius: 50%;
   color: whitesmoke;
   padding: 5px;
   position: absolute;
-  
-  
 }
 
 #userWeight:focus{
