@@ -36,14 +36,18 @@ $(document).ready(function () {
 
     $(".comet-card").css("display", "none");
     $("#neoCard").on("click", function () {
+       
         $("#neoCard").css("display", "none");
         $(".comet-card").css("display", "block").fadeIn();
 
         $('.close-icon').on('click', function () {
+           
+           
             $(this).closest('.card').fadeOut();
             $("#neoCard").css("display", "block");
         });
     });
+   
     //POTD Modal//
     $(".info").on("click", function () {
         $("#myModal").modal("show");
@@ -178,7 +182,8 @@ accessMissionTargets();
     //accessing neo api call
 
     function setSurfaceGravity(){
-        
+        $("#weight-on-planet").empty();
+        $("#userWeight").val("");
         
         console.log($(this).attr("id"));
         $("#solarModalHeader").text($(this).attr("id"));
