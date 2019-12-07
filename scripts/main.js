@@ -3,14 +3,14 @@ $(document).ready(function () {
 
     //front end styles//
 
-    // PreLoad Function// 
- $(window).on("load", function(){
-    setTimeout(function(){
-    $('.preload').slideUp('slow', function() {
-      $(this).remove();
-    });
-},3500);
-  });
+    // PreLoad Function//
+    $(window).on("load", function(){
+        setTimeout(function(){
+        $('.preload').slideUp('slow', function() {
+          $(this).remove();
+        });
+    },3500);
+      });
     
     
     //gsap/scroll magic//
@@ -226,33 +226,28 @@ accessMissionTargets();
                 let issLong = parseFloat(response.iss_position.longitude);
                 console.log(`This is the ISS's current coordinates: ${issLat}, ${issLong}`);
                 findIssCountry(issLat, issLong);
-                // let map = L.map('issMap', {
-                //     center: [issLat, issLong],
-                //     zoom: 20,
-                //     maxzoom: 20,
-                //     minzoom: 3
-                // });
-                // L.tileLayer('https://api.mapbox.com/styles/v1/{id}/static/auto/300x300?access_token={accessToken}', {
-                //     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-                //     maxZoom: 20,
-                //     id: 'mapbox/satellite-v9',
-                //     accessToken: 'pk.eyJ1Ijoia29nYW5wNDIiLCJhIjoiY2szdzFtcmI0MHMyejNqcGRqcmI2dnZuOSJ9.7YUzCLkvXsTXW0s2L8Nj-Q'
-                // }).addTo(map);
 
                 let mymap = L.map('issMap', {
                     maxzoom: 2.3,
                     minzoom: 2.3
-                }).setView([0, 0], 2.3,);
+                }).setView([issLat, issLong], 2.3,);
                 L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
                 attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
                 id: 'mapbox/satellite-v9',
                 accessToken: 'pk.eyJ1Ijoia29nYW5wNDIiLCJhIjoiY2szdzFtcmI0MHMyejNqcGRqcmI2dnZuOSJ9.7YUzCLkvXsTXW0s2L8Nj-Q'
                 }).addTo(mymap);
-                L.control.zoom(`<Control.Zoom options> false`);
+                // L.control.zoom(`<Control.Zoom options> false`);
+                let issIcon = L.icon({
+                    iconUrl: "https://img.pngio.com/spacecraft-icons-science-mission-directorate-iss-png-300_230.png",
+                    iconSize:     [38, 95],
+                    iconAnchor:   [22, 94],
+                    popupAnchor:  [-3, -76]
+                });
+                L.marker([issLat, issLong], {icon: issIcon}).addTo(mymap);
             });    
-    } 
+    }
     geoLocationISS();
-
+    let issInterval = setInterval(geoLocationISS, 30000); 
     //The function below will find the next time the ISS will pass by a user's location, then count down to that time.
         //This currently doesn't work due to a CORS block so I'm commenting it out.
 
