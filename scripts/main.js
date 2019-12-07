@@ -3,14 +3,14 @@ $(document).ready(function () {
 
     //front end styles//
 
-    // PreLoad Function// 
- $(window).on("load", function(){
-    setTimeout(function(){
-    $('.preload').slideUp('slow', function() {
-      $(this).remove();
-    });
-},3500);
-  });
+    // PreLoad Function//
+    $(window).on("load", function(){
+        setTimeout(function(){
+        $('.preload').slideUp('slow', function() {
+          $(this).remove();
+        });
+    },3500);
+      });
     
     
     //gsap/scroll magic//
@@ -210,6 +210,101 @@ accessMissionTargets();
 
         console.log(weight_on_planet);
     }
+
+    function setPlanetaryFacts(){
+        $("#weight-on-planet").empty();
+        $("#userWeight").val("");
+        let planets = {
+            "mercury" : {
+                moons: "0",
+                surface_temp: "-200 to 400 °C",
+                mass: "0.055",
+                year_length: "88 earth days",
+                day_length: "176 earth days"
+            },
+            "venus" : {
+                moons: "0",
+                surface_temp: "460 °C",
+                mass: "0.82",
+                year_length: "225 earth days",
+                day_length: "117 earth days"
+            },
+            "moon": {
+                moons: "0",
+                surface_temp: "-130 to 120 °C",
+                mass: "0.055",
+                day_length: "29.5 earth days",
+                year_length: "27 earth days"
+            },
+            "mars" : {
+                moons: "2",
+                surface_temp: "-150 to 20 °C",
+                mass: "0.11",
+                day_length: "1.03 earth days",
+                year_length: "687 earth days"
+            },
+            "jupiter" :{
+                moons: "63",
+                surface_temp: "-110 °C",
+                mass: "318",
+                day_length: "0.41 earth days",
+                year_length: "11.9 years"
+            },
+            "saturn" : {
+                moons: "60",
+                surface_temp: "-140 °C",
+                mass: "95.2",
+                day_length: "0.43 earth days",
+                year_length: "29.45 years"
+            },
+            "uranus" : {
+                moons: "27",
+                surface_temp: "-190 °C",
+                mass: "14.5",
+                day_length: "0.75 earth days",
+                year_length: "84 years"
+            },
+            "neptune" : {
+                moons: "13",
+                surface_temp: "-200 °C",
+                mass: "17.1",
+                day_length: "0.67 earth days",
+                year_length: "164.8 years"
+            },
+            "pluto" : {
+                moons: "5",
+                surface_temp: "-223 °C",
+                mass: "0.002",
+                day_length: "6.4 earth days",
+                year_length: "248 years"
+            },
+            "sun" : {
+                moons: "0",
+                surface_temp: "5600 °C",
+                mass: "1.3 million",
+                day_length: "unavailable",
+                year_length: "unavailable"
+            }
+        }
+ 
+        
+        
+        
+        let current_planet = $(this).attr("id");
+        current_planet = current_planet.toLowerCase();
+        
+       
+        
+       
+        $("#planet-moons").text(current_planet.replace(/^\w/, c => c.toUpperCase()) + " has " + planets[current_planet].moons + " moons");
+        $("#surface-temp").text("The surface temperature of " + current_planet.replace(/^\w/, c => c.toUpperCase()) + " is " + planets[current_planet].surface_temp);
+        $("#planet-mass").text(current_planet.replace(/^\w/, c => c.toUpperCase()) + " has a mass of " + planets[current_planet].mass + " (measured in earth masses)");
+        $("#day-length").text("A day on " + current_planet.replace(/^\w/, c => c.toUpperCase()) + " is " + planets[current_planet].day_length);
+        $("#year-length").text("A year on " + current_planet.replace(/^\w/, c => c.toUpperCase()) + " is " + planets[current_planet].year_length);
+
+    }
+
     $("#input-btn").click(planetaryWeight);
-    $(".planet").click(setSurfaceGravity);
+    $(".planet").click(setSurfaceGravity)
+    $(".planet").click(setPlanetaryFacts);
 });
