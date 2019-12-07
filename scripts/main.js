@@ -58,7 +58,7 @@ $(document).ready(function () {
         $("#weight-on-planet").empty();
     });
     function modalShown(){
-        if(!$("#planetModal").hasClass("in")){
+        if(!$("#planetModal").is(" :visible")){
             $("#weight-on-planet").empty();
         }
     }
