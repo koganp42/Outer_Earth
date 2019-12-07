@@ -3,14 +3,14 @@ $(document).ready(function () {
 
     //front end styles//
 
-    // PreLoad Function//
-    $(window).on("load", function(){
-        setTimeout(function(){
-        $('.preload').slideUp('slow', function() {
-          $(this).remove();
-        });
-    },3500);
-      });
+    // PreLoad Function// 
+ $(window).on("load", function(){
+    setTimeout(function(){
+    $('.preload').slideUp('slow', function() {
+      $(this).remove();
+    });
+},3500);
+  });
     
     
     //gsap/scroll magic//
