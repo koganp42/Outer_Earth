@@ -203,10 +203,14 @@ accessMissionTargets();
             }).then(function(response) {
                 console.log(response);
                 let issCountry = response.results[0].formatted_address;
-                $("#current-country").text(issCountry);
-                $("issMarker").bindPopup(`"${issCountry}"`)
+                if(issCountry == undefined){
+                    ("#current-country").text("A part of the ocean where Google fears to go.");   
+                } else {
+                    $("#current-country").text(issCountry);
+                };
             });
     }
+
     //Declaring global-scope variables for the map functions below. 
     let mymap;
     let issMarker;
@@ -216,6 +220,7 @@ accessMissionTargets();
         iconAnchor:   [22, 94],
         popupAnchor:  [-3, -76]
     });
+
     //This function gets the coordinates of the ISS, creates and/or recreates the ISS map icon based off them, and also passes those coordinates into the findIssCountry function.
     function geoLocationISS () {
         let queryURL = "http://api.open-notify.org/iss-now.json";
@@ -231,11 +236,12 @@ accessMissionTargets();
                     issMarker.remove();
                 }
                 issMarker = L.marker([issLat, issLong], {icon: issIcon});
-                issMarker.addTo(mymap).bindPopup("ISS Popup");
+                issMarker.addTo(mymap).bindPopup("<p>The ISS, a spacecraft laboratory built by the space agencies of the U.S.A., Canada, E.U., Japan, and Russia, orbits the Earth an average of 15.5 times per day at 27,600 km/h. For more information, go click <a href='https://en.wikipedia.org/wiki/International_Space_Station' target='_blank'>here</a>.</p>");
                 mymap.setView([issLat, issLong], 2.3,);
                 findIssCountry(issLat, issLong);
             });    
     }
+
     //This function inits the map and adds a worldmap tile layer.
     function initMap(){
         mymap = L.map('issMap', {
@@ -249,13 +255,13 @@ accessMissionTargets();
             accessToken: 'pk.eyJ1Ijoia29nYW5wNDIiLCJhIjoiY2szdzFtcmI0MHMyejNqcGRqcmI2dnZuOSJ9.7YUzCLkvXsTXW0s2L8Nj-Q'
         }).addTo(mymap);
     };
+
     //Invoking the map creator and first call of the ISS icon location, then updating the ISS map location every 15 seconds. 
     initMap();
     geoLocationISS();
     let issInterval = setInterval(geoLocationISS, 15000);
 
-    //The function below will find the next time the ISS will pass by a user's location, then count down to that time.
-
+    //The function below will find the next time the ISS will pass by a user's location by getting the user's latitude and longitude and then passing them into the second function.
     function findUserCoordinates(){
         navigator.geolocation.getCurrentPosition(function(position) {
             console.log(`The user's current coordinates are: ${position.coords.latitude}, ${position.coords.longitude}`);
