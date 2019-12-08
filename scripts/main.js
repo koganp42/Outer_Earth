@@ -222,14 +222,35 @@ accessMissionTargets();
 
                 let mymap = L.map('issMap', {
                     maxzoom: 2.3,
-                    minzoom: 2.3
+                    minzoom: 2.3,
+                    zoomControl: false,
+                    scrollWheelZoom: false
                 }).setView([issLat, issLong], 2.3,);
                 L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
                 attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
                 id: 'mapbox/satellite-v9',
                 accessToken: 'pk.eyJ1Ijoia29nYW5wNDIiLCJhIjoiY2szdzFtcmI0MHMyejNqcGRqcmI2dnZuOSJ9.7YUzCLkvXsTXW0s2L8Nj-Q'
                 }).addTo(mymap);
-                // L.control.zoom(`<Control.Zoom options> false`);
+                //L.control.remove();
+                function init(){
+                    var map = L.map('map', {center: [51.505, -0.09], zoom: 13}),
+                        marker          = L.marker(map.getCenter()).addTo(map),
+                        glcl            = google.loader.ClientLocation,
+                        onLocationfound = function(e){
+                          marker.setLatLng(e.latlng);
+                          map.setView(marker.getLatLng(),map.getZoom()); 
+                          alert('Marker has been set to position :'+marker.getLatLng().toString());
+                        };
+                        
+                    L.tileLayer('http://{s}.tile.cloudmade.com/1fa9625d371549a298938509a2eac256/997/256/{z}/{x}/{y}.png').addTo(map);
+                    
+                    map.on('locationfound', onLocationfound);
+                    
+                    if(glcl){//when google.loader.ClientLocation contains result
+                       onLocationfound({latlng:[glcl.latitude,glcl.longitude]});
+                    }else{alert('google.loader.ClientLocation fails');}
+                    map.locate();
+                }
                 let issIcon = L.icon({
                     iconUrl: "https://img.pngio.com/spacecraft-icons-science-mission-directorate-iss-png-300_230.png",
                     iconSize:     [38, 95],
