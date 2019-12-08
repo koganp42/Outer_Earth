@@ -1,6 +1,7 @@
 body {
   background-size: contain;
   background-repeat: repeat;
+  background-color: black;
   background-image: url(images/seaOfStars.jpg);
   margin: 0;
   padding: 0;
@@ -11,28 +12,52 @@ body {
   overflow-x: hidden;
 
 }
-.baby-yoda{
-  width: 200px;
+
+.bar{
+  font-size: 20px;
+  width: 15em;
+  height: 2em;
+  position: relative;
+  margin: 100px auto;
+  border-radius: 1em;
+  background: white;
+  background: rgba(255, 255, 255, 0.6);
+  box-shadow: 
+  0 0 0 .05em rgba(100,100,100,1),
+  0 0 0 .25em rgba(13, 215, 211, 0.31),
+  inset 0 .1em .05em rgba(0, 0, 0, 0.1),
+  0 .05em rgba(255, 255, 255, 0.7);
+}
+.bar:after{
+  content: "Contacting NASA..";
+  text-align: center;
   position: absolute;
-  top: 10%;
-  animation-name: swell;
-  animation-iteration-count: infinite;
-  animation-duration: 2s;
-  animation-direction: alternate;
+  top: 150%;
+  font-family: "Orbitron", sans-serif;
+  font-size: 2em;
+  letter-spacing: 3px;
+  color: #555;
+  text-shadow: 0 .05em rgba(24, 197, 216, 0.6);
 }
 
-.b2{
-  width: 200px;
-  position: absolute;
-  top: 60%;
-  animation-name: right;
-  animation-iteration-count: infinite;
-  animation-duration: 2s;
-  animation-direction: alternate;
+.baby-yoda{
+  display: block;
+  width: 2em;
+  height: 100%;
+  border-radius: 50%;
+  background: linear-gradient(#eee, #ddd);
+  animation: move 1.75s ease-in-out infinite alternate;
 }
+@keyframes move{
+  to{
+    margin-left: 86%;
+  }
+}
+
+
 .preload{
   position:fixed;
- background-color: rgb(41, 38, 38);
+  background: radial-gradient(closest-side, #373d43, #1e211b, #101010);
   top: 0;
   width: 100%;
   height: 100vh;
@@ -41,39 +66,8 @@ body {
   align-items: center;
   transition: opacity 1s ease; 
   z-index: 1;
-
-}
-.preload-finish{
-  animation-name: flipOutX;
-  opacity:0;
-  pointer-events: none;
 }
 
-.loadText{
-  font-family: "Orbitron", sans-serif;
-  font-size: 9vmin;
-  color: #22c1c3;
-  text-align: center;
- 
-}
-
-@keyframes swell{
-  0%{
-    left: -20%;
-  }
-  100%{
-    Left: 80%;
-  }
-}
-
-@keyframes right{
-  0%{
-    right: -20%;
-  }
-  100%{
-    right: 80%;
-  }
-}
 #j-tron {
   opacity: 0.8;
   width: 80%;
@@ -112,7 +106,6 @@ h4{
   font-family: "Orbitron", sans-serif;
   letter-spacing: 5px;
   text-shadow: rgb(63, 207, 207) 0px 1px 4px;
-
 }
 
 .picOfDay {
@@ -157,7 +150,6 @@ h4{
 #neoCard.fade-in{
   opacity: 1;
   transform: translateY(0);
-
 }
 
 .issImg:hover {

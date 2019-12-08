@@ -6,7 +6,7 @@ $(document).ready(function () {
     // PreLoad Function//
     $(window).on("load", function(){
         setTimeout(function(){
-        $('.preload').slideUp('slow', function() {
+        $('.preload').slideUp("slow", function() {
           $(this).remove();
         });
     },3500);
