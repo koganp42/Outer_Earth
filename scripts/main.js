@@ -217,14 +217,13 @@ accessMissionTargets();
                 console.log(response);
                 let issLat = parseFloat(response.iss_position.latitude);
                 let issLong = parseFloat(response.iss_position.longitude);
-                console.log(`This is the ISS's current coordinates: ${issLat}, ${issLong}`);
-                findIssCountry(issLat, issLong);
+                console.log(`The ISS's current coordinates: ${issLat}, ${issLong}`);
+                //findIssCountry(issLat, issLong);
 
                 let mymap = L.map('issMap', {
-                    maxzoom: 2.3,
-                    minzoom: 2.3,
                     zoomControl: false,
-                    scrollWheelZoom: false
+                    scrollWheelZoom: false,
+                    doubleClickZoom: false
                 }).setView([issLat, issLong], 2.3,);
                 L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
                 attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
@@ -232,38 +231,19 @@ accessMissionTargets();
                 accessToken: 'pk.eyJ1Ijoia29nYW5wNDIiLCJhIjoiY2szdzFtcmI0MHMyejNqcGRqcmI2dnZuOSJ9.7YUzCLkvXsTXW0s2L8Nj-Q'
                 }).addTo(mymap);
                 //L.control.remove();
-                function init(){
-                    var map = L.map('map', {center: [51.505, -0.09], zoom: 13}),
-                        marker          = L.marker(map.getCenter()).addTo(map),
-                        glcl            = google.loader.ClientLocation,
-                        onLocationfound = function(e){
-                          marker.setLatLng(e.latlng);
-                          map.setView(marker.getLatLng(),map.getZoom()); 
-                          alert('Marker has been set to position :'+marker.getLatLng().toString());
-                        };
-                        
-                    L.tileLayer('http://{s}.tile.cloudmade.com/1fa9625d371549a298938509a2eac256/997/256/{z}/{x}/{y}.png').addTo(map);
-                    
-                    map.on('locationfound', onLocationfound);
-                    
-                    if(glcl){//when google.loader.ClientLocation contains result
-                       onLocationfound({latlng:[glcl.latitude,glcl.longitude]});
-                    }else{alert('google.loader.ClientLocation fails');}
-                    map.locate();
-                }
+                
                 let issIcon = L.icon({
                     iconUrl: "https://img.pngio.com/spacecraft-icons-science-mission-directorate-iss-png-300_230.png",
                     iconSize:     [38, 95],
                     iconAnchor:   [22, 94],
                     popupAnchor:  [-3, -76]
                 });
-                L.marker([issLat, issLong], {icon: issIcon}).addTo(mymap);
+                L.marker([issLat, issLong], {icon: issIcon}).addTo(mymap).bindPopup("I am a green leaf.");
             });    
     }
     geoLocationISS();
     let issInterval = setInterval(geoLocationISS, 150000); 
     //The function below will find the next time the ISS will pass by a user's location, then count down to that time.
-        //This currently doesn't work due to a CORS block so I'm commenting it out.
 
     function findUserCoordinates(){
         navigator.geolocation.getCurrentPosition(function(position) {
@@ -284,13 +264,15 @@ accessMissionTargets();
                 console.log(response);
                 let unixTimeStamp = response.response[0].risetime;
                 let passDate = new Date(unixTimeStamp*1000);
-                let day = passDate.getDate();
                 let hours = passDate.getHours();
+                let ampm = hours >= 12 ? "pm" : "am";
+                    hours = hours % 12;
+                    hours = hours ? hours : 12;
                 let minutes = "0" + passDate.getMinutes();
                 let seconds = "0" + passDate.getSeconds();
-                let formattedPassTime = hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
+                let formattedPassTime = hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2) + ' ' + ampm;
                 let nextPassDisplayFormat = passDate.toDateString();
-                $("#ISS-pass-time").text(`The ISS will next be over your location at: ${formattedPassTime} on ${nextPassDisplayFormat}`);
+                $("#ISS-pass-time").text(`The ISS will next be over your location at: ${formattedPassTime} on ${nextPassDisplayFormat}.`);
             });
     };   
 
