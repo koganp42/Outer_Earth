@@ -98,8 +98,8 @@ $(document).ready(function () {
             $("#PotdInfo").text(response.explanation);
             });    
         }
-    //End of NASA Pic of Day API Call Section
     getPicOfDay();
+    //End of NASA Pic of Day API Call Section
 
 //accessing possible mission targets
     function callTargetApis(id){
@@ -190,13 +190,6 @@ accessMissionTargets();
     accessNeO();
     //accessing neo api call
 
-    
-
-
-
-
-
-
 
     //Start of ISS Functionality Section
 
@@ -247,7 +240,7 @@ accessMissionTargets();
             });    
     }
     geoLocationISS();
-    let issInterval = setInterval(geoLocationISS, 30000); 
+    let issInterval = setInterval(geoLocationISS, 150000); 
     //The function below will find the next time the ISS will pass by a user's location, then count down to that time.
         //This currently doesn't work due to a CORS block so I'm commenting it out.
 
@@ -278,26 +271,9 @@ accessMissionTargets();
                 let nextPassDisplayFormat = passDate.toDateString();
                 $("#ISS-pass-time").text(`The ISS will next be over your location at: ${formattedPassTime} on ${nextPassDisplayFormat}`);
             });
-    };
-
-    //The next section deals with creating a map display showing the ISS's current location. This may render the country-location function above unnecessary.
-    // function createIssMap(){
-    //     let issMapInit = L.map('issMap', {
-    //         minzoom: 2,
-    //         maxzoom: 2,
-            
-    //     });
-        
-    //     issMapInit.setView([0, 0], 2);
-    //     $("#issMap").html(issMapInit);
-    // }
-    //  createIssMap();    
-
-    
+    };   
 
     //End of ISS Functionality
-
-
 
     function setSurfaceGravity(){
         $("#weight-on-planet").empty();
