@@ -204,12 +204,21 @@ accessMissionTargets();
                 console.log(response);
                 let issCountry = response.results[0].formatted_address;
                 $("#current-country").text(issCountry);
+                $("issMarker").bindPopup(`"${issCountry}"`)
             });
     }
-    //This function gets the coordinates of the ISS and calls the findIssCountry function.
+    //Declaring global-scope variables for the map functions below. 
+    let mymap;
+    let issMarker;
+    let issIcon = L.icon({
+        iconUrl: "https://img.pngio.com/spacecraft-icons-science-mission-directorate-iss-png-300_230.png",
+        iconSize:     [38, 95],
+        iconAnchor:   [22, 94],
+        popupAnchor:  [-3, -76]
+    });
+    //This function gets the coordinates of the ISS, creates and/or recreates the ISS map icon based off them, and also passes those coordinates into the findIssCountry function.
     function geoLocationISS () {
         let queryURL = "http://api.open-notify.org/iss-now.json";
-        //Interval will go here
         $.ajax({
             url: queryURL,
             method: "GET",
@@ -218,31 +227,33 @@ accessMissionTargets();
                 let issLat = parseFloat(response.iss_position.latitude);
                 let issLong = parseFloat(response.iss_position.longitude);
                 console.log(`The ISS's current coordinates: ${issLat}, ${issLong}`);
-                //findIssCountry(issLat, issLong);
-
-                let mymap = L.map('issMap', {
-                    zoomControl: false,
-                    scrollWheelZoom: false,
-                    doubleClickZoom: false
-                }).setView([issLat, issLong], 2.3,);
-                L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
-                attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-                id: 'mapbox/satellite-v9',
-                accessToken: 'pk.eyJ1Ijoia29nYW5wNDIiLCJhIjoiY2szdzFtcmI0MHMyejNqcGRqcmI2dnZuOSJ9.7YUzCLkvXsTXW0s2L8Nj-Q'
-                }).addTo(mymap);
-                //L.control.remove();
-                
-                let issIcon = L.icon({
-                    iconUrl: "https://img.pngio.com/spacecraft-icons-science-mission-directorate-iss-png-300_230.png",
-                    iconSize:     [38, 95],
-                    iconAnchor:   [22, 94],
-                    popupAnchor:  [-3, -76]
-                });
-                L.marker([issLat, issLong], {icon: issIcon}).addTo(mymap).bindPopup("I am a green leaf.");
+                if(issMarker) {
+                    issMarker.remove();
+                }
+                issMarker = L.marker([issLat, issLong], {icon: issIcon});
+                issMarker.addTo(mymap).bindPopup("ISS Popup");
+                mymap.setView([issLat, issLong], 2.3,);
+                findIssCountry(issLat, issLong);
             });    
     }
+    //This function inits the map and adds a worldmap tile layer.
+    function initMap(){
+        mymap = L.map('issMap', {
+            zoomControl: false,
+            scrollWheelZoom: false,
+            doubleClickZoom: false
+        });
+        L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+            attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+            id: 'mapbox/satellite-v9',
+            accessToken: 'pk.eyJ1Ijoia29nYW5wNDIiLCJhIjoiY2szdzFtcmI0MHMyejNqcGRqcmI2dnZuOSJ9.7YUzCLkvXsTXW0s2L8Nj-Q'
+        }).addTo(mymap);
+    };
+    //Invoking the map creator and first call of the ISS icon location, then updating the ISS map location every 15 seconds. 
+    initMap();
     geoLocationISS();
-    let issInterval = setInterval(geoLocationISS, 150000); 
+    let issInterval = setInterval(geoLocationISS, 15000);
+
     //The function below will find the next time the ISS will pass by a user's location, then count down to that time.
 
     function findUserCoordinates(){
