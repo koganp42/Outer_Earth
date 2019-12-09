@@ -10,7 +10,6 @@ body {
   background-position: center;
   max-width: 100%;
   overflow-x: hidden;
-
 }
 
 .bar{
@@ -500,4 +499,20 @@ border-radius: 50%;
 
 #issMap{ 
   height: 400px; 
+  
+  box-shadow: rgb(40, 199, 191) 00px 00px 20px -2px;
+  margin: 0 auto;
+  display: flex;
+  border-radius: 10%;
 }
+
+/* .showMap{
+  border: 0.5px solid #22c1c3;
+  margin: 0 auto;
+  display: flex;
+  background: transparent;
+  color: whitesmoke;
+  margin
+} */
+
+
