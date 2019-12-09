@@ -497,3 +497,7 @@ border-radius: 50%;
   position: relative;
   margin-top: 50px ;
 }
+
+#issMap{ 
+  height: 400px; 
+}
