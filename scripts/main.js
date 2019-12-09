@@ -43,14 +43,11 @@ $(document).ready(function () {
     //gsap/scroll magic//
 
     $(".comet-card").css("display", "none");
-    $("#neoCard").on("click", function () {
-       
+    $("#neoCard").on("click", function () {    
         $("#neoCard").css("display", "none");
         $(".comet-card").css("display", "block").fadeIn();
 
         $('.close-icon').on('click', function () {
-           
-           
             $(this).closest('.card').fadeOut();
             $("#neoCard").css("display", "block");
         });
@@ -71,6 +68,18 @@ $(document).ready(function () {
         $("#planetModal").modal("show");
     });
     
+    //ISSMAP
+    $("#issMap").css('display',"none");
+
+    $(".showMap").on("click",function(){
+        $("#issModal").modal("hide");
+        $("#issMap").css("display","block");
+    });
+
+    $(".closeMap").on("click",function(){
+        $("#issMap").css("display", "none")
+    });
+
     //front end styles//
 
 
