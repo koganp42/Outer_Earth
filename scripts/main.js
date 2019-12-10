@@ -320,6 +320,14 @@ accessMissionTargets();
              
         $("#weight-on-planet").text("On " + $("#solarModalHeader").text() + " you weigh  " + weight_on_planet.toFixed(2) + " lbs");
 
+        if($("#solarModalHeader").text() === "Sun"){
+            let melting_gif = $("<img>");
+            melting_gif.attr("src", "https://media.giphy.com/media/gFwZfXIqD0eNW/giphy.gif");
+            $("#weight-on-planet").text("It's really hot on the Sun, so...");
+            $("#weight-on-planet").append(melting_gif);
+
+        }
+
         console.log(weight_on_planet);
     }
 
