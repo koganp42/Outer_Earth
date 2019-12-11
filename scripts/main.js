@@ -74,6 +74,7 @@ $(document).ready(function () {
     $(".showMap").on("click",function(){
         $("#issModal").modal("hide");
         $("#issMap").css("display","block");
+        mymap.invalidateSize();
     });
 
     $(".closeMap").on("click",function(){
