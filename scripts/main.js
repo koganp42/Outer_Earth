@@ -267,7 +267,7 @@ accessMissionTargets();
     //Invoking the map creator and first call of the ISS icon location, then updating the ISS map location every 15 seconds. 
     initMap();
     geoLocationISS();
-    let issInterval = setInterval(geoLocationISS, 120000);
+    let issInterval = setInterval(geoLocationISS, 15000);
 
     //The function below will find the next time the ISS will pass by a user's location by getting the user's latitude and longitude and then passing them into the second function.
     function findUserCoordinates() {
