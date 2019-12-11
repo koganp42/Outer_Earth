@@ -63,22 +63,14 @@ $(document).ready(function () {
         $("#issModal").modal("show");
     });
 
-    //SOLAR MODAL//
+    //SOLAR MODAL
     $(".col-").on("click",function(){
         $("#planetModal").modal("show");
     });
     
     //ISSMAP
-    $("#issMap").css('display',"none");
-
-    $(".showMap").on("click",function(){
-        $("#issModal").modal("hide");
-        $("#issMap").css("display","block");
-        mymap.invalidateSize();
-    });
-
-    $(".closeMap").on("click",function(){
-        $("#issMap").css("display", "none")
+    $(".issInfo").on("click",function() {
+        $("#issModal").modal("show");
     });
 
     //front end styles//

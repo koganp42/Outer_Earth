@@ -110,7 +110,12 @@
     <!--ISS Main image-->
     <div class="col-lg-12 col-md-12 col-sm-12" id="issCard">
         <h1 class="sub-title">ISS Location</h1>
-        <img class="img-fluid issImg col-sm-12 col-md-8 col-lg-8" src="assets/images/hiclipart.com.png" alt="Picture of The ISS">
+        <!-- <img class="img-fluid issImg col-sm-12 col-md-8 col-lg-8" src="assets/images/hiclipart.com.png" alt="Picture of The ISS"> -->
+        <div id="issMap" class="col-10">      
+        </div>
+        <button type="button" class="btn  issInfo" data-toggle="modal" data-target="#exampleModalCenter">
+                Learn More
+            </button>
     </div>
     <!-- issModal -->
     <div class="modal fade" id="issModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
@@ -128,7 +133,7 @@
                         <p id="current-country"></p>
                         <br />
                         <p id="ISS-pass-time"></p>
-                        <button class="showMap">SEE LIVE MAP!</button>
+                        
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -136,10 +141,10 @@
             </div>
         </div>
     </div>
-    <div id="issMap" class="col-6">
+    <!-- <div id="issMap" class="col-6">
             <button type="button" class="close closeMap" data-dismiss="modal issMap" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
-                </button>
+                </button> -->
     </div>
     <!--------------Solar System------->
     <div class="container solar-container col-lg-12 col-md-12 col-sm-12" id="solar-main">

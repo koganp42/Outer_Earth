@@ -234,6 +234,17 @@ h4{
   font-family: "Orbitron", sans-serif;
 }
 
+.issInfo {
+  margin: 0 auto;
+  display: flex;
+  letter-spacing: 2px;
+  border-radius: 4px;
+  box-shadow: #22c1c3 0px 0px 5px;
+  color: #22c1c3;
+  background: transparent;
+  font-family: "Orbitron", sans-serif;
+}
+
 .info:hover {
   color: yellowgreen;
   animation: pulse 2s ease-in-out;
@@ -498,12 +509,12 @@ border-radius: 50%;
 }
 
 #issMap{ 
-  height: 400px; 
-  
-  box-shadow: rgb(40, 199, 191) 00px 00px 20px -2px;
+  width: 50vw;
+  height: 50vw;
+  box-shadow: rgb(40, 199, 191) 00px 0px 20px -2px;
   margin: 0 auto;
   display: flex;
-  border-radius: 10%;
+  border-radius: 50%;
 }
 
 /* .showMap{
