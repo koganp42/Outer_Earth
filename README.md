@@ -1,5 +1,5 @@
 # Outer_Earth
-A fully responsive and  interactive astrology learning tool. Utilizing the NASA API and the ISS API to dynamically update current astrological events. 
+A fully responsive and  interactive astronomy learning tool. Utilizing the NASA API and the ISS API to dynamically update current astronomical events. 
 * **Explore** - [Outer-Earth](https://koganp42.github.io/Outer_Earth/)
 
 ## Preview
@@ -15,11 +15,12 @@ Each day a different image or photograph of our fascinating universe is featured
 ### NeO (Near Earth Objects)
 Dynamically Updated daily with the NASA API-
 Near Earth objects are any comets or asteroids that have been "pushed" into earth' area in space by the gravitational attraction of other planets. The 'NEO card' will show objects that will be approaching close to Earth today!
+
 ### NeO (Mission Targets)
 Dynamically Updated daily with the NASA API-
 These NeOs(near earth objects) have a possiblity to come close enough to have human crewed missions sent to them! Displaying minimum requirements for each NeO to obtain the minimum duration trajectory(minimum mission time).
 
-### ISS LOCATION (Internatioinal Space Station)
+### ISS Location (Internatioinal Space Station)
 Dynamically Updated with the ISS API-
 This feature will get your current location and tell you when the 
 space station will pass over you and where it currently is. An awesome feature added will show you the current location of the ISS on a map!
@@ -27,25 +28,26 @@ space station will pass over you and where it currently is. An awesome feature a
 ### Planet Facts
 An interactive feature that will have the user input his/her weight and provide the users weight on the planet selected. Also this feature provides each planets Mass, day length , year length and temperature. 
 
-
-
 ## Technologies Used
 * HTML
 * CSS 
 * JAVASCRIPT/JQUERY
 * Moment.JS
+* Leaflet.JS
+* GSAP JS animations
 * BOOTSTRAP 
 * Animate.CSS
-* GSAP JS animations
 * Scroll magic
 * Font Awesome
 * Google Fonts
 
-## API's USED
+## API's Used
 * NASA 
-* ISS
+* Open Notify - ISS Current Location and ISS Pass Time
+* Mapbox - Map Tiles
+* Google - Geocoding
 
-## AUTHORS
+## Authors
 * **Cassidy Fortner** - *JavaScript/API Implementation* - [GitHub](https://github.com/Cassquatch)
 
 * **Kogan Pack** - *JavaScript/API Implementation* - [GitHub](https://github.com/koganp42)
@@ -54,5 +56,5 @@ An interactive feature that will have the user input his/her weight and provide 
 
 
 ## User story: 
-“I’m a high school science/astronomy teacher looking for a user-friendly, interesting resource to help get students excited about astronomy.”
+“I’m a high school science teacher looking for a user-friendly, interesting resource to help get students excited about astronomy.”
 
