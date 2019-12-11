@@ -9,19 +9,19 @@ A fully responsive and  interactive astronomy learning tool. Utilizing the NASA 
 ## Features
 
 ### Picture of the Day
-Dynamically Updated daily with the NASA API-
+Dynamically updated daily with the NASA API-
 Each day a different image or photograph of our fascinating universe is featured, along with a brief explanation written by a professional astronomer. 
 
 ### NeO (Near Earth Objects)
-Dynamically Updated daily with the NASA API-
+Dynamically updated daily with the NASA API-
 Near Earth objects are any comets or asteroids that have been "pushed" into earth' area in space by the gravitational attraction of other planets. The 'NEO card' will show objects that will be approaching close to Earth today!
 
 ### NeO (Mission Targets)
-Dynamically Updated daily with the NASA API-
+Dynamically updated daily with the NASA API-
 These NeOs(near earth objects) have a possiblity to come close enough to have human crewed missions sent to them! Displaying minimum requirements for each NeO to obtain the minimum duration trajectory(minimum mission time).
 
-### ISS Location (Internatioinal Space Station)
-Dynamically Updated with the ISS API-
+### ISS Location (International Space Station)
+Dynamically updated with the ISS API-
 This feature will get your current location and tell you when the 
 space station will pass over you and where it currently is. An awesome feature added will show you the current location of the ISS on a map!
 
