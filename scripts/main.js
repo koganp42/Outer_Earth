@@ -262,36 +262,39 @@ accessMissionTargets();
     let issInterval = setInterval(geoLocationISS, 15000);
 
     //The function below will find the next time the ISS will pass by a user's location by getting the user's latitude and longitude and then passing them into the second function.
-    function findUserCoordinates() {
-        navigator.geolocation.getCurrentPosition(function (position) {
-            console.log(`The user's current coordinates are: ${position.coords.latitude}, ${position.coords.longitude}`);
-            let userLat = position.coords.latitude;
-            let userLong = position.coords.latitude;
-            findPassTime(userLat, userLong);
-        });
-    };
-    findUserCoordinates();
-    function findPassTime(userLat, userLong) {
-        let queryURL = `http://api.open-notify.org/iss-pass.json?lat=${userLat}&lon=${userLong}`;
-        $.ajax({
-            url: queryURL,
-            method: "GET",
-            dataType: "JSONP",
-        }).then(function (response) {
-            console.log(response);
-            let unixTimeStamp = response.response[0].risetime;
-            let passDate = new Date(unixTimeStamp * 1000);
-            let hours = passDate.getHours();
-            let ampm = hours >= 12 ? "pm" : "am";
-            hours = hours % 12;
-            hours = hours ? hours : 12;
-            let minutes = "0" + passDate.getMinutes();
-            let seconds = "0" + passDate.getSeconds();
-            let formattedPassTime = hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2) + ' ' + ampm;
-            let nextPassDisplayFormat = passDate.toDateString();
-            $("#ISS-pass-time").text(`The ISS will next be over your location at: ${formattedPassTime} on ${nextPassDisplayFormat}.`);
-        });
-    };
+
+                    //NOTE: Given the need to change to an https api for the ISS functionality, the feature below is not currently supported. Kogan_P plans on returning to this in the future and figuring out how to calculate the pass-time manually using TLE data.
+
+    // function findUserCoordinates() {
+    //     navigator.geolocation.getCurrentPosition(function (position) {
+    //         console.log(`The user's current coordinates are: ${position.coords.latitude}, ${position.coords.longitude}`);
+    //         let userLat = position.coords.latitude;
+    //         let userLong = position.coords.latitude;
+    //         findPassTime(userLat, userLong);
+    //     });
+    // };
+    // findUserCoordinates();
+    // function findPassTime(userLat, userLong) {
+    //     let queryURL = `http://api.open-notify.org/iss-pass.json?lat=${userLat}&lon=${userLong}`;
+    //     $.ajax({
+    //         url: queryURL,
+    //         method: "GET",
+    //         dataType: "JSONP",
+    //     }).then(function (response) {
+    //         console.log(response);
+    //         let unixTimeStamp = response.response[0].risetime;
+    //         let passDate = new Date(unixTimeStamp * 1000);
+    //         let hours = passDate.getHours();
+    //         let ampm = hours >= 12 ? "pm" : "am";
+    //         hours = hours % 12;
+    //         hours = hours ? hours : 12;
+    //         let minutes = "0" + passDate.getMinutes();
+    //         let seconds = "0" + passDate.getSeconds();
+    //         let formattedPassTime = hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2) + ' ' + ampm;
+    //         let nextPassDisplayFormat = passDate.toDateString();
+    //         $("#ISS-pass-time").text(`The ISS will next be over your location at: ${formattedPassTime} on ${nextPassDisplayFormat}.`);
+    //     });
+    // };
 
     //End of ISS Functionality
     function setSurfaceGravity(){
