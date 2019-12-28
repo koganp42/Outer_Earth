@@ -202,11 +202,11 @@ accessMissionTargets();
             method: "GET",
         }).then(function (response) {
             console.log(response);
-            let issCountry = response.results[0].formatted_address;
-            if (issCountry == undefined) {
-                ("#current-country").text("A part of the ocean where Google fears to go.");
+            let issMissing = response.status;
+            if (issMissing === "ZERO_RESULTS") {
+                $("#current-country").text("A part of the ocean where Google fears to go.");
             } else {
-                $("#current-country").text(issCountry);
+                $("#current-country").text(response.results[0].formatted_address);
             };
         });
     }
@@ -223,22 +223,26 @@ accessMissionTargets();
 
     //This function gets the coordinates of the ISS, creates and/or recreates the ISS map icon based off them, and also passes those coordinates into the findIssCountry function.
     function geoLocationISS() {
-        let queryURL = "http://api.open-notify.org/iss-now.json";
+        let queryURL = "https://api.wheretheiss.at/v1/satellites/25544";
         $.ajax({
             url: queryURL,
             method: "GET",
         }).then(function (response) {
             console.log(response);
-            let issLat = parseFloat(response.iss_position.latitude);
-            let issLong = parseFloat(response.iss_position.longitude);
+            let issLat = parseFloat(response.latitude);
+            let issLong = parseFloat(response.longitude);
+            let issVel = ("" + response.velocity).substr(0, 8);
+            let issAlt = ("" + response.altitude).substr(0, 6);
             console.log(`The ISS's current coordinates: ${issLat}, ${issLong}`);
             if (issMarker) {
                 issMarker.remove();
             }
             issMarker = L.marker([issLat, issLong], { icon: issIcon });
-            issMarker.addTo(mymap).bindPopup("<p>The ISS, a spacecraft laboratory built by the space agencies of the U.S.A., Canada, E.U., Japan, and Russia, orbits the Earth an average of 15.5 times per day at 27,600 km/h. For more information, go click <a href='https://en.wikipedia.org/wiki/International_Space_Station' target='_blank'>here</a>.</p>");
+            issMarker.addTo(mymap).bindPopup("<p>The ISS, a spacecraft laboratory built by the space agencies of the U.S.A., Canada, E.U., Japan, and Russia, orbits the Earth an average of 15.5 times per day and is normally crewed by 6 astronauts. For more information, go click <a href='https://en.wikipedia.org/wiki/International_Space_Station' target='_blank'>here</a>.</p>");
             mymap.setView([issLat, issLong], 2.3);
             findIssCountry(issLat, issLong);
+            $("#iss-velocity").text(`Current Velocity: ${issVel} km/h`);
+            $("#iss-altitude").text(`Current Altitude: ${issAlt} meters`);
         });
     }
 
@@ -259,39 +263,42 @@ accessMissionTargets();
     //Invoking the map creator and first call of the ISS icon location, then updating the ISS map location every 15 seconds. 
     initMap();
     geoLocationISS();
-    let issInterval = setInterval(geoLocationISS, 15000);
+    let issInterval = setInterval(geoLocationISS, 20000);
 
     //The function below will find the next time the ISS will pass by a user's location by getting the user's latitude and longitude and then passing them into the second function.
-    function findUserCoordinates() {
-        navigator.geolocation.getCurrentPosition(function (position) {
-            console.log(`The user's current coordinates are: ${position.coords.latitude}, ${position.coords.longitude}`);
-            let userLat = position.coords.latitude;
-            let userLong = position.coords.latitude;
-            findPassTime(userLat, userLong);
-        });
-    };
-    findUserCoordinates();
-    function findPassTime(userLat, userLong) {
-        let queryURL = `http://api.open-notify.org/iss-pass.json?lat=${userLat}&lon=${userLong}`;
-        $.ajax({
-            url: queryURL,
-            method: "GET",
-            dataType: "JSONP",
-        }).then(function (response) {
-            console.log(response);
-            let unixTimeStamp = response.response[0].risetime;
-            let passDate = new Date(unixTimeStamp * 1000);
-            let hours = passDate.getHours();
-            let ampm = hours >= 12 ? "pm" : "am";
-            hours = hours % 12;
-            hours = hours ? hours : 12;
-            let minutes = "0" + passDate.getMinutes();
-            let seconds = "0" + passDate.getSeconds();
-            let formattedPassTime = hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2) + ' ' + ampm;
-            let nextPassDisplayFormat = passDate.toDateString();
-            $("#ISS-pass-time").text(`The ISS will next be over your location at: ${formattedPassTime} on ${nextPassDisplayFormat}.`);
-        });
-    };
+
+                    //NOTE: Given the need to change to an https api for the ISS functionality, the feature below is not currently supported. Kogan Pack plans on returning to this in the future and figuring out how to calculate the pass-time manually using TLE data.
+
+    // function findUserCoordinates() {
+    //     navigator.geolocation.getCurrentPosition(function (position) {
+    //         console.log(`The user's current coordinates are: ${position.coords.latitude}, ${position.coords.longitude}`);
+    //         let userLat = position.coords.latitude;
+    //         let userLong = position.coords.latitude;
+    //         findPassTime(userLat, userLong);
+    //     });
+    // };
+    // findUserCoordinates();
+    // function findPassTime(userLat, userLong) {
+    //     let queryURL = `http://api.open-notify.org/iss-pass.json?lat=${userLat}&lon=${userLong}`;
+    //     $.ajax({
+    //         url: queryURL,
+    //         method: "GET",
+    //         dataType: "JSONP",
+    //     }).then(function (response) {
+    //         console.log(response);
+    //         let unixTimeStamp = response.response[0].risetime;
+    //         let passDate = new Date(unixTimeStamp * 1000);
+    //         let hours = passDate.getHours();
+    //         let ampm = hours >= 12 ? "pm" : "am";
+    //         hours = hours % 12;
+    //         hours = hours ? hours : 12;
+    //         let minutes = "0" + passDate.getMinutes();
+    //         let seconds = "0" + passDate.getSeconds();
+    //         let formattedPassTime = hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2) + ' ' + ampm;
+    //         let nextPassDisplayFormat = passDate.toDateString();
+    //         $("#ISS-pass-time").text(`The ISS will next be over your location at: ${formattedPassTime} on ${nextPassDisplayFormat}.`);
+    //     });
+    // };
 
     //End of ISS Functionality
     function setSurfaceGravity(){
