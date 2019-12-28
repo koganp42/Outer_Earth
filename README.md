@@ -22,8 +22,8 @@ These NeOs(near earth objects) have a possiblity to come close enough to have hu
 
 ### ISS Location (International Space Station)
 Dynamically updated with the ISS API-
-This feature will get your current location and tell you when the 
-space station will pass over you and where it currently is. An awesome feature added will show you the current location of the ISS on a map!
+This feature will get your current location and tell you where the 
+space station currently is, how fast it's travelling, and its altitude. An awesome feature added will show you the current location of the ISS on a map!
 
 ### Planet Facts
 An interactive feature that will have the user input his/her weight and provide the users weight on the planet selected. Also this feature provides each planets Mass, day length , year length and temperature. 
@@ -43,7 +43,7 @@ An interactive feature that will have the user input his/her weight and provide 
 
 ## API's Used
 * NASA 
-* Open Notify - ISS Current Location and ISS Pass Time
+* Where the ISS at?
 * Mapbox - Map Tiles
 * Google - Geocoding
 
